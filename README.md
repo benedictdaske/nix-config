@@ -15,6 +15,8 @@ My personal - hopefully - clean, modular and well-documented Nix config
 
 #### 1. Dependencies
 #### 2. Install Nix
+I highly recommend using the Determinate Systems [nix-installer](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file) for a smooth setup process.
+
 #### 3. Initialize Template
 #### 4. Make apps executable
 ``` shell
@@ -24,4 +26,4 @@ find apps/$(uname -m | sed 's/arm64/aarch64/')-darwin -type f \( -name apply -o 
 
 ## Authorship
 
-Part of this config was collected from other Nix configurations. Thanks to dustinlyons, [his config](https://github.com/dustinlyons/nixos-config) has been a great but challenging introduction to Nix.
+Part of this config was collected from other Nix configurations. Most notably, [dustinlyons](https://github.com/dustinlyons/nixos-config), []() has been a great but challenging introduction to Nix.
