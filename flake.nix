@@ -25,7 +25,40 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        # disk partitioning
+        # disko = {
+        #     url = "github:nix-community/disko";
+        #     inputs.nixpkgs.follows = "nixpkgs";
+        # };
+
+
+        # non-flakes e.g. nvim plugins
+        # nvim-render-markdown = {
+        #     url = "github:MeanderingProgrammer/render-markdown.nvim";
+        #     flake = false;
+        # }
     };
 
-    outputs = { nixpkgs, ... }@inputs:
+    outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs:
+    let
+
+        user = "brene";
+
+        # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+        stateVersion = "24.11";
+
+        linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
+        darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+        forAllSystems = func: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) func;
+
+        libx = import ./lib { inherit inputs outputs stateVersion; };
+
+    in
+    {
+        
+
+        # Custom packages and modifications, exported as overlays
+        overlays = import ./overlays { inherit inputs; };
+
+    };
 }

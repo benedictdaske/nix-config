@@ -1,5 +1,10 @@
-- copy structure of nis setup
+- copy structure of nix setup
 
 - config file for aech program? -> see zsh condig and stuff
 
-- dev shells (node, uv, etc.)
+
+
+
+
+
+1. dev shells w/ nodejs_22 + uv??
