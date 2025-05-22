@@ -22,13 +22,14 @@
     security.pam.enableSudoTouchIdAuth = true;
     # security.pam.services.sudo_local.touchIdAuth = true;
 
-    system.systemBuilderArgs = lib.mkIf (config.nix.settings.sandbox == "relaxed") {
-        sandboxProfile = ''
-            (allow file-read* file-write* process-exec mach-lookup (subpath "${builtins.storeDir}"))
-        '';
-    };
+    # enable in case sandbox is too strict
+    # system.systemBuilderArgs = lib.mkIf (config.nix.settings.sandbox == "relaxed") {
+    #     sandboxProfile = ''
+    #         (allow file-read* file-write* process-exec mach-lookup (subpath "${builtins.storeDir}"))
+    #     '';
+    # };
 
-    # local nix-index, research this, how to use?
+        # local nix-index, research this, how to use?
     # programs.nix-index.enable = true;
 
     homebrew = {
@@ -68,7 +69,6 @@
             # "lunar"
             # "microsoft-remote-desktop"
             # "multipass"
-            # "multiviewer-for-f1"
             # "ollama"
             # "orbstack"
             # "pearcleaner"
@@ -97,9 +97,9 @@
         # $ mas search <app name>
         masApps = {
             # "blackmagic-disk-speed-test" = 425264550;
-            "keynote" = 409183694;
-            "numbers" = 409203825;
-            "pages" = 409201541;
+            # "keynote" = 409183694;
+            # "numbers" = 409203825;
+            # "pages" = 409201541;
         };
     };
 
@@ -144,7 +144,7 @@
             };
 
             finder = {
-
+                # TODO necessary ???
                 _FXShowPosixPathInTitle = true;
                 # enable column view for new windows
                 FXPreferredViewStyle = "clmv";
