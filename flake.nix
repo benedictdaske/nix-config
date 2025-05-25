@@ -55,38 +55,36 @@
         libx = import ./lib { inherit inputs outputs stateVersion; };
 
     in
-    {
-        libx.loadSystems // {
-            # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
-            devShells = libx.forAllSystems (system:
-                let pkgs = nixpkgs.legacyPackages.${system};
-                in import ./shell.nix { inherit pkgs; }
-            );
+    libx.loadSystems // {
+        # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
+        devShells = libx.forAllSystems (system:
+            let pkgs = nixpkgs.legacyPackages.${system};
+            in import ./shell.nix { inherit pkgs; }
+        );
 
-            # nix fmt
-            formatter = libx.forAllSystems (system:
-                nix-formatter-pack.lib.mkFormatter {
-                    inherit nixpkgs system;
-                    config = {
-                        tools = {
-                            alejandra.enable = false;
-                            deadnix.enable = true;
-                            nixpkgs-fmt.enable = true;
-                            statix.enable = true;
-                        };
+        # nix fmt
+        formatter = libx.forAllSystems (system:
+            nix-formatter-pack.lib.mkFormatter {
+                inherit nixpkgs system;
+                config = {
+                    tools = {
+                        alejandra.enable = false;
+                        deadnix.enable = true;
+                        nixpkgs-fmt.enable = true;
+                        statix.enable = true;
                     };
-                }
-            );
+                };
+            }
+        );
 
-            # Custom packages and modifications, exported as overlays
-            overlays = import ./overlays { inherit inputs; };
+        # Custom packages and modifications, exported as overlays
+        overlays = import ./overlays { inherit inputs; };
 
-            # For Custom packages; acessible via 'nix build', 'nix shell', etc
-            # packages = libx.forAllSystems (system:
-            #     let pkgs = nixpkgs.legacyPackages.${system};
-            #     in import ./pkgs { inherit pkgs; inherit inputs; }
-            # );
+        # For Custom packages; acessible via 'nix build', 'nix shell', etc
+        # packages = libx.forAllSystems (system:
+        #     let pkgs = nixpkgs.legacyPackages.${system};
+        #     in import ./pkgs { inherit pkgs; inherit inputs; }
+        # );
 
-        };
     };
 }

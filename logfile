@@ -1,0 +1,7 @@
+nix build .#darwinConfigurations.borderline.system
+error: syntax error, unexpected UPDATE, expecting '.' or '='
+       at /Users/brene/nix-config/flake.nix:59:26:
+           58|     {
+           59|         libx.loadSystems // {
+             |                          ^
+           60|             # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
