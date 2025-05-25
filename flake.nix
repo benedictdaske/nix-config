@@ -42,7 +42,7 @@
     outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs:
     let
         inherit (self) outputs;
-        
+
         user = "brene";
 
         # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
@@ -66,26 +66,26 @@
             # nix fmt
             formatter = libx.forAllSystems (system:
                 nix-formatter-pack.lib.mkFormatter {
-                inherit nixpkgs system;
-                config = {
-                    tools = {
-                        alejandra.enable = false;
-                        deadnix.enable = true;
-                        nixpkgs-fmt.enable = true;
-                        statix.enable = true;
+                    inherit nixpkgs system;
+                    config = {
+                        tools = {
+                            alejandra.enable = false;
+                            deadnix.enable = true;
+                            nixpkgs-fmt.enable = true;
+                            statix.enable = true;
+                        };
                     };
-                };
                 }
             );
 
             # Custom packages and modifications, exported as overlays
             overlays = import ./overlays { inherit inputs; };
 
-            # Custom packages; acessible via 'nix build', 'nix shell', etc
-            packages = libx.forAllSystems (system:
-                let pkgs = nixpkgs.legacyPackages.${system};
-                in import ./pkgs { inherit pkgs; inherit inputs; }
-            );
+            # For Custom packages; acessible via 'nix build', 'nix shell', etc
+            # packages = libx.forAllSystems (system:
+            #     let pkgs = nixpkgs.legacyPackages.${system};
+            #     in import ./pkgs { inherit pkgs; inherit inputs; }
+            # );
 
         };
     };
