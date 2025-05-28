@@ -1,3 +1,9 @@
+  error: function 'anonymous lambda' called without required argument 'user'
+       at /Users/brene/nix-config/lib/default.nix:1:1:
+            1| { inputs, outputs, user, stateVersion, ... }:
+             | ^
+            2| {
+
 nix build .#darwinConfigurations.borderline.system
 error: syntax error, unexpected UPDATE, expecting '.' or '='
        at /Users/brene/nix-config/flake.nix:59:26:
