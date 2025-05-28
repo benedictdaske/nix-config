@@ -44,6 +44,7 @@
     };
 
     outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs:
+    with inputs;
     let
         inherit (self) outputs;
 
