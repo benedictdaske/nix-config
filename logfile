@@ -5,3 +5,14 @@ error: syntax error, unexpected UPDATE, expecting '.' or '='
            59|         libx.loadSystems // {
              |                          ^
            60|             # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
+
+
+
+
+nix build .#darwinConfigurations.borderline.system 
+error: undefined variable 'nix-formatter-pack'
+       at /Users/brene/nix-config/flake.nix:67:13:
+           66|         formatter = libx.forAllSystems (system:
+           67|             nix-formatter-pack.lib.mkFormatter {
+             |             ^
+           68|                 inherit nixpkgs system;

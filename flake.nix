@@ -25,6 +25,10 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        # formatting for nix files
+        nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
+
+
         # disk partitioning
         # disko = {
         #     url = "github:nix-community/disko";
