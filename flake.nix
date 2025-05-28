@@ -54,7 +54,7 @@
         stateVersion = "24.11";
 
         linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
-        darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+        darwinSystems = [ "aarch64-darwin" ];
         forAllSystems = func: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) func;
 
         libx = import ./lib { inherit inputs outputs stateVersion; };
