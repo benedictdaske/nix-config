@@ -1,8 +1,19 @@
+
   error: function 'anonymous lambda' called without required argument 'user'
        at /Users/brene/nix-config/lib/default.nix:1:1:
             1| { inputs, outputs, user, stateVersion, ... }:
              | ^
             2| {
+
+
+nix build .#darwinConfigurations.borderline.system 
+error: undefined variable 'nix-formatter-pack'
+       at /Users/brene/nix-config/flake.nix:67:13:
+           66|         formatter = libx.forAllSystems (system:
+           67|             nix-formatter-pack.lib.mkFormatter {
+             |             ^
+           68|                 inherit nixpkgs system;
+
 
 nix build .#darwinConfigurations.borderline.system
 error: syntax error, unexpected UPDATE, expecting '.' or '='
@@ -13,12 +24,4 @@ error: syntax error, unexpected UPDATE, expecting '.' or '='
            60|             # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
 
 
-
-
-nix build .#darwinConfigurations.borderline.system 
-error: undefined variable 'nix-formatter-pack'
-       at /Users/brene/nix-config/flake.nix:67:13:
-           66|         formatter = libx.forAllSystems (system:
-           67|             nix-formatter-pack.lib.mkFormatter {
-             |             ^
-           68|                 inherit nixpkgs system;
+nix build ".#darwinConfigurations.borderline.system"

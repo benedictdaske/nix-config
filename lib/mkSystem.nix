@@ -4,10 +4,12 @@
 { name, inputs, outputs, stateVersion }:
 let
   inherit (inputs.nixpkgs) lib;
+
   myLibPath = ../lib;
   systemsPath = ../systems;
   myModulesPath = ../modules;
   homeManagerPath = ../home-manager;
+
   filterDirs = lib.filterAttrs (_n: v: v == "directory");
   userDirs =
     builtins.attrNames
@@ -21,6 +23,7 @@ let
             (builtins.attrNames (filterDirs (builtins.readDir (homeManagerPath + "/${user}")))))))
         userDirs);
   users = usersForSystem name;
+
   isDarwin = builtins.pathExists (systemsPath + "/${name}/darwin-configuration.nix");
   configFile = if isDarwin then "darwin-configuration.nix" else "configuration.nix";
   configKey = if isDarwin then "darwinConfigurations" else "nixosConfigurations";
