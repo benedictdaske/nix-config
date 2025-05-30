@@ -1,3 +1,30 @@
+error:
+       … while evaluating the attribute 'value'
+         at «github:nixos/nixpkgs/f09dede81861f3a83f7f06641ead34f02f37597f?narHash=sha256-92vihpZr6dwEMV6g98M5kHZIttrWahb9iRPBm1atcPk%3D»/nix/store/ilqr95vggnjqpbh6r0fiz2dw43iljg93-source/lib/modules.nix:992:7:
+          991|     // {
+          992|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+          993|       inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `system.build':
+
+       … while evaluating the attribute 'mergedValue'
+         at «github:nixos/nixpkgs/f09dede81861f3a83f7f06641ead34f02f37597f?narHash=sha256-92vihpZr6dwEMV6g98M5kHZIttrWahb9iRPBm1atcPk%3D»/nix/store/ilqr95vggnjqpbh6r0fiz2dw43iljg93-source/lib/modules.nix:1033:5:
+         1032|     # Type-check the remaining definitions, and merge them. Or throw if no definitions.
+         1033|     mergedValue =
+             |     ^
+         1034|       if isDefined then
+
+       … while evaluating definitions from `/nix/store/hj63xfp2c7gadsap3xs2av7c6py4rz07-source/modules/system':
+
+       … while evaluating the option `home-manager.users.brene.home.homeDirectory':
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: A definition for option `home-manager.users.brene.home.homeDirectory' is not of type `path'. Definition values:
+       - In `/nix/store/dimhhb7nhymgd9f35ajdzf6xkij6rsh8-source/nixos/common.nix': null
+
+
 
   error: function 'anonymous lambda' called without required argument 'user'
        at /Users/brene/nix-config/lib/default.nix:1:1:
