@@ -25,49 +25,12 @@
         # update on manual brew commands
         global.autoUpdate = true;
 
-        brews = [];
+        brews = [
+            "python3"
+        ];
         taps = [];
         casks = [
-            # "arc"
-            # "anytype"
-            # "audacity"
-            # "bambu-studio"
-            # "bartender"
-            # "bentobox"
-            # "chatgpt"
-            # "claude"
-            # "cursor"
-            # "deskpad"
-            # "discord"
-            # "diffusionbee"
-            # "google-chrome"
-            # "grammarly-desktop"
-            # "homerow"
-            # "inkscape"
-            # "iterm2"
-            # "linearmouse"
-            # "lunar"
-            # "microsoft-remote-desktop"
-            # "multipass"
-            # "ollama"
-            # "orbstack"
-            # "pearcleaner"
-            # "raycast"
-            # "screen-studio"
-            # "shortcat"
-            # "shureplus-motiv"
-            # "signal"
-            # "slack"
-            # "stats"
-            # "steam"
-            # "swiftformat-for-xcode"
-            # "syncthing"
-            # "tailscale"
-            # This freezes on quit, using desktop.telegram.org for now
-            # "telegram-desktop"
-            # "utm"
-            # "visual-studio-code"
-            # "vlc"
+            "ghostty"
         ];
         # These app IDs are from using the mas CLI app
         # mas = mac app store

@@ -25,7 +25,9 @@
         # update on manual brew commands
         global.autoUpdate = true;
 
-        brews = [];
+        brews = [
+            "python3"
+        ];
         taps = [];
         casks = [
             # "arc"
