@@ -35,7 +35,6 @@ in
     # nodePackages.prettier
     ookla-speedtest
     python3
-    ramfetch
     ripgrep
     # sops # pushing secrets via git
     tree
