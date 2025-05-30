@@ -34,7 +34,6 @@ in
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier
     ookla-speedtest
-    python3
     ripgrep
     # sops # pushing secrets via git
     tree
@@ -47,6 +46,7 @@ in
     # unstable.claude-code # needs license
   ] ++ (lib.optionals isLinux [
     # additional packages for linux only
+    python3
     ramfetch
     traceroute
   ]);
