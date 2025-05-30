@@ -28,46 +28,36 @@
         brews = [];
         taps = [];
         casks = [
-            # "arc"
-            # "anytype"
-            # "audacity"
-            # "bambu-studio"
+
+            "bitwarden"
+            "brave-browser"
+            "freetube"
+            "obsidian"
+            "onyx"
+            "orbstack"
+            "raycast"
+            "spotify"
+            "sublime-text"
+            "syncthing"
+            "telegram"
+            "tuta-mail"
+            "utm"
+            "visual-studio-code"
+
+
+            # add some of these ???
             # "bartender"
-            # "bentobox"
-            # "chatgpt"
-            # "claude"
             # "cursor"
             # "deskpad"
-            # "discord"
-            # "diffusionbee"
-            # "google-chrome"
-            # "grammarly-desktop"
-            # "homerow"
-            # "inkscape"
-            # "iterm2"
-            # "linearmouse"
+
             # "lunar"
-            # "microsoft-remote-desktop"
-            # "multipass"
-            # "ollama"
             # "orbstack"
             # "pearcleaner"
             # "raycast"
-            # "screen-studio"
+            # "rectangle"
+
             # "shortcat"
-            # "shureplus-motiv"
-            # "signal"
-            # "slack"
             # "stats"
-            # "steam"
-            # "swiftformat-for-xcode"
-            # "syncthing"
-            # "tailscale"
-            # This freezes on quit, using desktop.telegram.org for now
-            # "telegram-desktop"
-            # "utm"
-            # "visual-studio-code"
-            # "vlc"
         ];
         # These app IDs are from using the mas CLI app
         # mas = mac app store
