@@ -28,13 +28,16 @@
         # formatting for nix files
         nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
 
-
         # disk partitioning
         # disko = {
         #     url = "github:nix-community/disko";
         #     inputs.nixpkgs.follows = "nixpkgs";
         # };
 
+        # other packages
+        # nixos on apple silicon
+        # nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
+        
 
         # non-flakes e.g. nvim plugins
         # nvim-render-markdown = {
