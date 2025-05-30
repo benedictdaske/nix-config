@@ -14,8 +14,8 @@
                 "/Library/Apple" # rossetta runtime
             ];
             trusted-users = [ "@admin" ];
-        }
-    }
+        };
+    };
 
     # enable touch id for sudo
     # deprecated ?
