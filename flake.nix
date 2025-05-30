@@ -37,7 +37,7 @@
         # other packages
         # nixos on apple silicon
         # nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
-        
+
 
         # non-flakes e.g. nvim plugins
         # nvim-render-markdown = {
@@ -54,7 +54,7 @@
         user = "brene";
 
         # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-        stateVersion = "24.11";
+        stateVersion = "25.05";
 
         linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
         darwinSystems = [ "aarch64-darwin" ];
