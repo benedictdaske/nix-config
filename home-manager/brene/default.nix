@@ -66,7 +66,7 @@ in
 
   # TODO move to dotfiles
   # Prevent the "Last login" message from showing up
-#   home.file.".hushlogin".text = "";
+  home.file.".hushlogin".text = "";
 
   #---------------------------------------------------------------------
   # Programs
