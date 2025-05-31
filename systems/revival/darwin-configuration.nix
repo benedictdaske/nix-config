@@ -46,5 +46,11 @@
 
     system = {
         stateVersion = 6;
+
+        defaults.dock = {
+            persistentApps = [
+                "/Applications/Ghostty.app"
+            ];
+        };
     };
 }
