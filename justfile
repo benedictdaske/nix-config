@@ -15,7 +15,7 @@ HOSTNAME := "{{hostname}}" || `hostname -s`
 # Build the nix-darwin system configuration without switching to it
 [macos]
 build target_host=HOSTNAME flags="":
-  @echo "${YELLOW}Building nix-darwin config...${NC}"
+  @echo "{{YELLOW}}Building nix-darwin config...{{NC}}"
   nix build ".#darwinConfigurations.{{target_host}}.system" {{flags}}
   @echo "${GREEN}Build completed!${NC}"
 
