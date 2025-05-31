@@ -29,6 +29,7 @@
         taps = [];
         casks = [
 
+            "aldente"
             "bitwarden"
             "brave-browser"
             "ghostty"

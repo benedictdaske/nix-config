@@ -31,6 +31,7 @@ in
     gnugrep
     htop
     jq
+    just
     neofetch
     nix-diff
     # nodejs # Node is required for Copilot.vim
