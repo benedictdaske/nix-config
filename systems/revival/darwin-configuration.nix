@@ -2,7 +2,7 @@
     nixpkgs.hostPlatform = "aarch64-darwin";
 
     # m2 macbook pro
-    networking.hostName = "borderline";
+    networking.hostName = "revival";
 
     # enable touch id for sudo
 
