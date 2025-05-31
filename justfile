@@ -1,8 +1,7 @@
 
 # Build the system config and switch to it when running `just` with no args
-default hostname=`hostname -s`:
-  @echo "Using hostname: {{hostname}}"
-  @just switch hostname={{hostname}}
+default:
+  switch
 
 # colored output
 RED    := '\033[1;31m'
@@ -11,7 +10,7 @@ GREEN  := '\033[0;32m'
 NC     := '\033[0m'
 
 # either arg or fallback to system if already set
-# hostname := {{hostname}} || `hostname -s`
+hostname := `hostname -s`
 
 
 ### macos
