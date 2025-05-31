@@ -17,18 +17,18 @@ NC     := '\033[0m'
 ### macos
 # Build the nix-darwin system configuration without switching to it
 [macos]
-build target_host=hostname flags="":
+build target_host=HOSTNAME flags="":
   @echo "{{YELLOW}}Building nix-darwin config...{{NC}}"
   nix build ".#darwinConfigurations.{{target_host}}.system" {{flags}}
   @echo "${GREEN}Build completed!${NC}"
 
 # Build the nix-darwin config with the --show-trace flag set
 [macos]
-trace target_host=hostname: (build target_host "--show-trace")
+trace target_host=HOSTNAME: (build target_host "--show-trace")
 
 # Build the nix-darwin configuration and switch to it
 [macos]
-switch target_host=hostname: (build target_host)
+switch target_host=HOSTNAME: (build target_host)
   @echo "${YELLOW}Switching to new config for {{target_host}}...${NC}"
   ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
   @echo "${GREEN}Switched to new config!${NC}"
@@ -37,16 +37,16 @@ switch target_host=hostname: (build target_host)
 ### linux
 # Build the NixOS configuration without switching to it
 [linux]
-build target_host=hostname flags="":
+build target_host=HOSTNAME flags="":
 	nixos-rebuild build --flake .#{{target_host}} {{flags}}
 
 # Build the NixOS config with the --show-trace flag set
 [linux]
-trace target_host=hostname: (build target_host "--show-trace")
+trace target_host=HOSTNAME: (build target_host "--show-trace")
 
 # Build the NixOS configuration and switch to it.
 [linux]
-switch target_host=hostname:
+switch target_host=HOSTNAME:
   sudo nixos-rebuild switch --flake .#{{target_host}}
 
 
