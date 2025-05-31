@@ -1,6 +1,6 @@
 # Build the system config and switch to it when running `just` with no args
 default hostname="":
-  HOSTNAME="{{hostname or `hostname -s`}}"
+  HOSTNAME="{{hostname || `hostname -s`}}"
   @echo "Using hostname: {{HOSTNAME}}"
   switch
 
