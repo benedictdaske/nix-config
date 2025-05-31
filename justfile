@@ -18,7 +18,7 @@ hostname := `hostname -s`
 build target_host=hostname flags="":
   @echo -e "{{YELLOW}}Building nix-darwin config...{{NC}}"
   nix build ".#darwinConfigurations.{{target_host}}.system" {{flags}}
-  @echo "${GREEN}Build completed!${NC}"
+  @echo -e "{{GREEN}}Build completed!{{NC}}"
 
 # Build the nix-darwin config with the --show-trace flag set
 [macos]
@@ -27,9 +27,9 @@ trace target_host=hostname: (build target_host "--show-trace")
 # Build the nix-darwin configuration and switch to it
 [macos]
 switch target_host=hostname: (build target_host)
-  @echo "${YELLOW}Switching to new config for {{target_host}}...${NC}"
+  @echo -e "{{YELLOW}}Switching to new config for {{target_host}}...{{NC}}"
   ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
-  @echo "${GREEN}Switched to new config!${NC}"
+  @echo -e "{{GREEN}}Switched to new config!{{NC}}"
 
 
 ### linux
