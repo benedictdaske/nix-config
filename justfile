@@ -36,14 +36,14 @@ rollback target_host=hostname:
   @echo -e "{{YELLOW}}Available generations:{{NC}}"
   /run/current-system/sw/bin/darwin-rebuild --list-generations
   @echo -e "{{YELLOW}}Enter the generation number for rollback:{{NC}}"
-  read GEN_NUM
-  if (-n "$GEN_NUM") {
-    echo -e "{{RED}}No generation number entered. Aborting rollback.{{NC}}"
-  } else {
-    echo -e "{{YELLOW}}Rolling back to generation $$GEN_NUM...{{NC}}"
-    /run/current-system/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}" --switch-generation "$$GEN_NUM"
-    echo -e "{{GREEN}}Rollback to generation $$GEN_NUM complete!{{NC}}"
-  }
+  read GEN_NUM && \
+  if [ -z "$GEN_NUM" ]; then \
+    echo -e "{{RED}}No generation number entered. Aborting rollback.{{NC}}"; \
+  else \
+    echo -e "{{YELLOW}}Rolling back to generation $GEN_NUM...{{NC}}"; \
+    /run/current-system/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}" --switch-generation "$GEN_NUM"; \
+    echo -e "{{GREEN}}Rollback to generation $GEN_NUM complete!{{NC}}"; \
+  fi
 
 
 ### linux
