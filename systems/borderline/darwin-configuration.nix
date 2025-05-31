@@ -43,7 +43,7 @@
             "syncthing"
             "telegram"
             "tuta-mail"
-            "utm"
+            # "utm"
             "visual-studio-code"
 
 
@@ -77,5 +77,17 @@
 
     system = {
         stateVersion = 6;
+        
+        defaults.dock = {
+            persistent-apps = [
+                "/Applications/Ghostty.app"
+                # "/Applications/Visual\ Studio\ Code.app/"
+                "/Applications/Visual Studio Code.app/"
+                # "/Applications/Brave\ Browser.app"
+                "/Applications/Brave Browser.app"
+                # "/Applications/Tuta\ Mail.app/"
+                "/Applications/Tuta Mail.app/"
+            ];
+        };
     };
 }
