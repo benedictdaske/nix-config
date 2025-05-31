@@ -1,3 +1,11 @@
+just hostname=revival
+error: Variable `hostname` not defined
+  ——▶ justfile:20:19
+   │
+20 │ build target_host=hostname flags="":
+
+
+
 error: Call to unknown function `defined`
   ——▶ justfile:11:16
    │
