@@ -31,6 +31,7 @@
 
             "bitwarden"
             "brave-browser"
+            "ghostty"
             "freetube"
             "obsidian"
             "onyx"

@@ -24,12 +24,14 @@ in
   home.packages = with pkgs; [
     bat
     bind
+    btop
     fd
     fzf
     gcc
     gnugrep
     htop
     jq
+    neofetch
     nix-diff
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier
@@ -41,6 +43,7 @@ in
     # upterm # Terminal sharing
     watch
     whois
+    yazi
     zoxide
 
     # unstable packages
