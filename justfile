@@ -8,7 +8,7 @@ GREEN  := '\033[0;32m'
 NC     := '\033[0m'
 
 # either arg or fallback to system if already set
-hostname := "{{hostname}}" || `hostname -s`
+hostname ?=$(shell hostname -s)
 
 
 ### macos
