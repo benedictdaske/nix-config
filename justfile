@@ -36,7 +36,7 @@ rollback target_host=hostname:
   @echo -e "{{YELLOW}}Available generations:{{NC}}"
   /run/current-system/sw/bin/darwin-rebuild --list-generations
   @echo -e "{{YELLOW}}Enter the generation number for rollback:{{NC}}"
-  read GEN_NUM && \
+  @read GEN_NUM && \
   if [ -z "$GEN_NUM" ]; then \
     echo -e "{{RED}}No generation number entered. Aborting rollback.{{NC}}"; \
   else \
