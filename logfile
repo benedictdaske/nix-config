@@ -1,3 +1,11 @@
+error: Call to unknown function `defined`
+  ——▶ justfile:11:16
+   │
+11 │ HOSTNAME := if defined(hostname) { hostname } else { `hostname -s` }
+
+
+
+
 ./result/sw/bin/darwin-rebuild switch --flake "$(pwd)#revival"
 building the system configuration...
 warning: Git tree '/Users/brene/nix-config' has uncommitted changes

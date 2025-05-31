@@ -1,5 +1,8 @@
 # Build the system config and switch to it when running `just` with no args
-default: switch
+default:
+  HOSTNAME={{hostname or `hostname -s`}}
+  @echo "Using HOSTNAME: $HOSTNAME"
+  switch
 
 # colored output
 RED    := '\033[1;31m'
