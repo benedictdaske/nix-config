@@ -1,7 +1,7 @@
+
 # Build the system config and switch to it when running `just` with no args
-default hostname="":
-  HOSTNAME="{{hostname || `hostname -s`}}"
-  @echo "Using hostname: {{HOSTNAME}}"
+default hostname=`hostname -s`:
+  @echo "Using hostname: {{hostname}}"
   switch
 
 # colored output
