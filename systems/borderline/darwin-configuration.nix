@@ -53,7 +53,6 @@
             # "deskpad"
 
             # "lunar"
-            # "orbstack"
             # "pearcleaner"
             # "raycast"
             # "rectangle"

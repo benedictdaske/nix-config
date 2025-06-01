@@ -1,4 +1,4 @@
-{ config, lib, pkgs, sources, myModulesPath, ... }:
+{ config, lib, pkgs, myModulesPath, ... }:
 
 let
   inherit (pkgs.stdenv) isLinux;
@@ -24,31 +24,20 @@ in
   home.packages = with pkgs; [
     bat
     bind
-    btop
+    curl
     fd
-    fzf
-    gcc
     gnugrep
     htop
     jq
     just
     neofetch
-    nix-diff
-    # nodejs # Node is required for Copilot.vim
-    # nodePackages.prettier
-    ookla-speedtest
-    python3
-    ripgrep
-    # sops # pushing secrets via git
     tree
     # upterm # Terminal sharing
     watch
-    whois
-    yazi
-    zoxide
 
     # unstable packages
-    # unstable.claude-code # needs license
+    # unstable.claude-code # needs license...
+
   ] ++ (lib.optionals isLinux [
     # additional packages for linux only
     ramfetch
