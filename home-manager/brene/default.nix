@@ -26,14 +26,20 @@ in
     bind
     curl
     fd
+    fzf
     gnugrep
     htop
     jq
     just
     neofetch
+    neovim
+    ripgrep
+    stow
     tree
     # upterm # Terminal sharing
     watch
+    yazi
+    zoxide
 
     # unstable packages
     # unstable.claude-code # needs license...
