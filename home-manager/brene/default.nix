@@ -7,12 +7,7 @@ in
   home.stateVersion = "25.05";
 
   imports = [
-    # (myModulesPath + "/fish")
-    # (myModulesPath + "/bash")
     # (myModulesPath + "/neovim")
-    # (myModulesPath + "/ssh")
-    # (myModulesPath + "/starship")
-    # (myModulesPath + "/tree-sitter")
   ];
 
   xdg.enable = true;
@@ -32,7 +27,6 @@ in
     jq
     just
     neofetch
-    neovim
     ripgrep
     stow
     tree
@@ -83,6 +77,22 @@ in
     };
   };
 
+  programs.fish = {
+    enable = true;
+
+    # inherit (libx) shellAliases;
+
+    # plugins = map
+    #   (n: {
+    #     name = n;
+    #     src = sources.${n};
+    #   }) [
+    #   "fish-fzf"
+    #   "fish-foreign-env"
+    #   "zoxide.fish"
+    # ];
+  };
+
   programs.git = {
     enable = true;
     userName = "benedictdaske";
@@ -99,6 +109,14 @@ in
       github.user = "benedictdaske";
       init.defaultBranch = "main";
     };
+  };
+
+  programs.neovim = {
+    enable = true;
+
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
   };
 
 #   programs.tmux = {

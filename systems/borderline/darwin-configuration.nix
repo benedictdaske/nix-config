@@ -6,7 +6,7 @@
 
     # enable touch id for sudo
     # deprecated ?
-    security.pam.enableSudoTouchIdAuth = true;
+    # security.pam.enableSudoTouchIdAuth = true;
     # security.pam.services.sudo_local.touchIdAuth = true;
 
     # local nix-index, research this, how to use?
@@ -39,11 +39,12 @@
             "orbstack"
             "raycast"
             "spotify"
+            "stats"
             "sublime-text"
             "syncthing"
             "telegram"
             "tuta-mail"
-            # "utm"
+            "utm"
             "visual-studio-code"
 
 
@@ -54,11 +55,9 @@
 
             # "lunar"
             # "pearcleaner"
-            # "raycast"
             # "rectangle"
 
             # "shortcat"
-            # "stats"
         ];
         # These app IDs are from using the mas CLI app
         # mas = mac app store

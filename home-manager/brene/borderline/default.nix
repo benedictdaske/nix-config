@@ -1,7 +1,7 @@
 { pkgs, myModulesPath, ... }:
 {
   imports = [
-    # (myModulesPath + "/rectangle")
+    # (myModulesPath + "/neovim")
   ];
 
   home.packages = with pkgs; [
