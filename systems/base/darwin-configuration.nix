@@ -17,11 +17,11 @@
             wget
         ];
         variables = {
-            EDITOR = "nvim";
-            SYSTEMD_EDITOR = "nvim";
-            VISUAL = "nvim";
+            EDITOR = "vim";
+            SYSTEMD_EDITOR = "vim";
+            VISUAL = "vim";
         };
-        shells = with pkgs; [ bashInteractive zsh fish ];
+        shells = with pkgs; [ bashInteractive zsh ];
     };
 
     fonts = {
@@ -145,18 +145,18 @@
     # what our home directory is (https://github.com/LnL7/nix-darwin/issues/423).
     users.users.brene = {
         home = "/Users/brene";
-        shell = pkgs.fish;
+        shell = pkgs.zsh;
     };
 
     # zsh is the default shell on Mac and we want to make sure that we're
     # configuring the rc correctly with nix-darwin paths.
-    programs.fish.enable = true;
-    # programs.zsh.shellInit = ''
-    #     # Nix
-    #     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-    #         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-    #     fi
-    #     # End Nix
-    # '';
+    programs.zsh.enable = true;
+    programs.zsh.shellInit = ''
+        # Nix
+        if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+            . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+        fi
+        # End Nix
+    '';
 
 }

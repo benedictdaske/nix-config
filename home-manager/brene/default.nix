@@ -17,7 +17,6 @@ in
   #---------------------------------------------------------------------
 
   home.packages = with pkgs; [
-    ascii
     bat
     bind
     curl
@@ -28,7 +27,6 @@ in
     jq
     just
     neofetch
-    python3
     ripgrep
     stow
     tree
@@ -79,8 +77,8 @@ in
     };
   };
 
-  # programs.fish = {
-  #   enable = true;
+  programs.fish = {
+    enable = true;
 
     # inherit (libx) shellAliases;
 
@@ -93,7 +91,7 @@ in
     #   "fish-foreign-env"
     #   "zoxide.fish"
     # ];
-  # };
+  };
 
   programs.git = {
     enable = true;

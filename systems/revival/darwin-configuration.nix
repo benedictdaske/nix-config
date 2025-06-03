@@ -25,9 +25,7 @@
         # update on manual brew commands
         global.autoUpdate = true;
 
-        brews = [
-            "fisher"
-        ];
+        brews = [];
         taps = [];
         casks = [
             "ghostty"

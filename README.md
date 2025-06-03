@@ -24,10 +24,6 @@ find apps/$(uname -m | sed 's/arm64/aarch64/')-darwin -type f \( -name apply -o 
 ```
 
 
-#### 5. Darwin fish
-chsh -s /opt/homebrew/bin/fish
-
-
 ## Authorship
 
 Part of this config was collected from other Nix configurations. Most notably, the configs of [dustinlyons](https://github.com/dustinlyons/nixos-config), [mitchellh](https://github.com/mitchellh/nixos-config) and [shayne](https://github.com/shayne/nixos-config) have been a great but challenging introduction to Nix. Please give their configs a look, these people actually know what they're doing...
