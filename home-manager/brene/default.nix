@@ -80,7 +80,7 @@ in
   };
 
   programs.fish = {
-    enable = false;
+    enable = enable;
 
     # inherit (libx) shellAliases;
 

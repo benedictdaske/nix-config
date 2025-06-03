@@ -9,9 +9,6 @@
     };
 
     environment = {
-        extraInit = ''
-            export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-        '';
         systemPackages = with pkgs; [
             gitMinimal
             home-manager
@@ -24,10 +21,7 @@
             SYSTEMD_EDITOR = "nvim";
             VISUAL = "nvim";
         };
-        shells = with pkgs; [ bashInteractive zsh ]
-        ++ [
-            "/opt/homebrew/bin/fish"
-        ];
+        shells = with pkgs; [ bashInteractive zsh fish ];
     };
 
     fonts = {
@@ -151,7 +145,7 @@
     # what our home directory is (https://github.com/LnL7/nix-darwin/issues/423).
     users.users.brene = {
         home = "/Users/brene";
-        shell = "/opt/homebrew/bin/fish";
+        shell = pkgs.fish;
     };
 
     # zsh is the default shell on Mac and we want to make sure that we're

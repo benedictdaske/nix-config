@@ -26,7 +26,7 @@
         global.autoUpdate = true;
 
         brews = [
-            "fish"
+            "fisher"
         ];
         taps = [];
         casks = [
