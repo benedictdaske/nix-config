@@ -9,9 +9,10 @@
     };
 
     environment = {
-        # extraInit = ''Add commentMore actions
-        #     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt:$PATH"
-        # '';
+        # otherwise homebrew brews are not found
+        extraInit = ''Add commentMore actions
+            export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt:$PATH"
+        '';
         systemPackages = with pkgs; [
             gitMinimal
             home-manager
@@ -20,9 +21,9 @@
             wget
         ];
         variables = {
-            EDITOR = "vim";
-            SYSTEMD_EDITOR = "vim";
-            VISUAL = "vim";
+            EDITOR = "nvim";
+            SYSTEMD_EDITOR = "nvim";
+            VISUAL = "nvim";
         };
         shells = with pkgs; [ bashInteractive zsh fish ];
     };
@@ -155,6 +156,8 @@
         };
     };
 
+    # fish is our default shell on Mac and we want to make sure that we're
+    # configuring the rc correctly with nix-darwin paths.
     programs.fish.enable = true;
     programs.fish.shellInit = ''
         # Nix
@@ -164,8 +167,6 @@
         # End Nix
     '';
 
-    # zsh is the default shell on Mac and we want to make sure that we're
-    # configuring the rc correctly with nix-darwin paths.
     programs.zsh.enable = true;
     programs.zsh.shellInit = ''
         # Nix
