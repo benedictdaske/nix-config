@@ -79,8 +79,8 @@ in
     };
   };
 
-  programs.fish = {
-    enable = true;
+  # programs.fish = {
+  #   enable = true;
 
     # inherit (libx) shellAliases;
 
@@ -93,7 +93,7 @@ in
     #   "fish-foreign-env"
     #   "zoxide.fish"
     # ];
-  };
+  # };
 
   programs.git = {
     enable = true;
