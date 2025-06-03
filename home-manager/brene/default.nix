@@ -107,13 +107,6 @@ in
     vimdiffAlias = true;
   };
 
-  programs.starship = {
-    enable = true;
-    package = pkgs.unstable.starship;
-    # enableTransience = true;
-    enableFishIntegration = true;
-  };
-
 #   programs.tmux = {
 #     enable = true;
 #     terminal = "xterm-256color";
