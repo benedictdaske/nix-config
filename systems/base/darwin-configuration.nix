@@ -143,10 +143,23 @@
 
     # The user should already exist, but we need to set this up so Nix knows
     # what our home directory is (https://github.com/LnL7/nix-darwin/issues/423).
-    users.users.brene = {
-        home = "/Users/brene";
-        shell = pkgs.zsh;
+    users = {
+        knownUsers = [ "brene" ];
+        users.brene = {
+            home = "/Users/brene";
+            shell = pkgs.fish;
+            uid = 501;
+        };
     };
+
+    programs.fish.enable = true;
+    programs.fish.shellInit = ''
+        # Nix
+        if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+        source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+        end
+        # End Nix
+    '';
 
     # zsh is the default shell on Mac and we want to make sure that we're
     # configuring the rc correctly with nix-darwin paths.
