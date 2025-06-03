@@ -17,6 +17,7 @@ in
   #---------------------------------------------------------------------
 
   home.packages = with pkgs; [
+    ascii
     bat
     bind
     curl
@@ -27,6 +28,7 @@ in
     jq
     just
     neofetch
+    python3
     ripgrep
     stow
     tree

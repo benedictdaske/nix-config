@@ -9,10 +9,10 @@
     # docker-client # check if docker cli works
     gcc
     nix-diff
+    nix-index
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier
     ookla-speedtest
-    python3
     # sops # pushing secrets via git
     whois
 
