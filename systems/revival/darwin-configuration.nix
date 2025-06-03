@@ -27,6 +27,7 @@
 
         brews = [
             "fisher"
+            "ascii"
         ];
         taps = [];
         casks = [
