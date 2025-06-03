@@ -79,18 +79,6 @@ in
 
   programs.fish = {
     enable = true;
-
-    # inherit (libx) shellAliases;
-
-    # plugins = map
-    #   (n: {
-    #     name = n;
-    #     src = sources.${n};
-    #   }) [
-    #   "fish-fzf"
-    #   "fish-foreign-env"
-    #   "zoxide.fish"
-    # ];
   };
 
   programs.git = {
@@ -117,6 +105,13 @@ in
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    package = pkgs.unstable.starship;
+    # enableTransience = true;
+    enableFishIntegration = true;
   };
 
 #   programs.tmux = {
