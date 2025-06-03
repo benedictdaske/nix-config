@@ -9,8 +9,9 @@
     };
 
     environment = {
+            # export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
         extraInit = ''Add commentMore actions
-            export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+            export PATH="/opt/homebrew/:$PATH"
         '';
         systemPackages = with pkgs; [
             gitMinimal
