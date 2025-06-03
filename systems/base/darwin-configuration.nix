@@ -9,9 +9,9 @@
     };
 
     environment = {
-        extraInit = ''Add commentMore actions
-            export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt:$PATH"
-        '';
+        # extraInit = ''Add commentMore actions
+        #     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt:$PATH"
+        # '';
         systemPackages = with pkgs; [
             gitMinimal
             home-manager

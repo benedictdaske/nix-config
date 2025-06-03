@@ -26,7 +26,6 @@
         global.autoUpdate = true;
 
         brews = [
-            "fisher"
             "ascii"
         ];
         taps = [];
