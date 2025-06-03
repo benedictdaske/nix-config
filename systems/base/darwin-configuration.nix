@@ -21,7 +21,7 @@
             SYSTEMD_EDITOR = "vim";
             VISUAL = "vim";
         };
-        shells = with pkgs; [ bashInteractive zsh ];
+        shells = with pkgs; [ bashInteractive zsh fish ];
     };
 
     fonts = {
