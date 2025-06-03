@@ -9,6 +9,9 @@
     };
 
     environment = {
+        extraInit = ''
+            export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+        '';
         systemPackages = with pkgs; [
             gitMinimal
             home-manager
@@ -23,7 +26,7 @@
         };
         shells = with pkgs; [ bashInteractive zsh ]
         ++ [
-            "${"/opt/homebrew/bin/fish"}"
+            "/opt/homebrew/bin/fish"
         ];
     };
 
