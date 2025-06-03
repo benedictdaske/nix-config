@@ -17,9 +17,9 @@
             wget
         ];
         variables = {
-            EDITOR = "vim";
-            SYSTEMD_EDITOR = "vim";
-            VISUAL = "vim";
+            EDITOR = "nvim";
+            SYSTEMD_EDITOR = "nvim";
+            VISUAL = "nvim";
         };
         shells = with pkgs; [ bashInteractive zsh ];
     };
