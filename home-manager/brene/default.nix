@@ -28,7 +28,6 @@ in
     htop
     jq
     just
-    unstable.kanata
     neofetch
     neovim
     ripgrep
