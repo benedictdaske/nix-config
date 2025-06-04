@@ -89,6 +89,13 @@
     # default settings for darwin
     system = {
         defaults = {
+            alf = {
+                # enable firewall
+                globalstate = 1;
+                # enable stealth mode, drop ICMP requests e.g. pings
+                stealthenabled = 1;
+            };
+
             NSGlobalDomain = {
                 # 24-hour time
                 AppleICUForce24HourTime = true;
