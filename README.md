@@ -1,32 +1,68 @@
 # nix-config
 My personal - hopefully - clean, modular and well-documented Nix config
 
-## Structure
-- ```apps``` contains executables for updating and installing the system
-- ```hosts``` defines configs for my personal machines, as well as a ```shared``` one
-- ```modules``` self-built modules for system management - yet to be added
-- ```overlays``` allows to apply patches and version overrides
-- ```pkgs``` contains self built packages, mainly sourced directly from GitHub
 
+## Structure
+```
+.
+├── home-manager # user specific config managed by home-manager
+├── lib          # system building utilities, merging all configuration
+├── modules      # advanced package configurations
+├── overlays     # allows to apply patches or customisation, provides unstable channel
+├── systems      # system configs for each machine
+```
 
 ## Installation
 
 ### MacOS
 
-#### 1. Dependencies
-#### 2. Install Nix
-I highly recommend using the Determinate Systems [nix-installer](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file) for a smooth setup process.
+#### 1. Install Dependencies (git)
+``` sh
+xcode-select --install
+```
+Or just try to use git (clone), an installation window should pop up.
 
-#### 3. Initialize Template
-#### 4. Make apps executable
-``` shell
-find apps/$(uname -m | sed 's/arm64/aarch64/')-darwin -type f \( -name apply -o -name build -o -name build-switch -o -name create-keys -o -name copy-keys -o -name check-keys -o -name rollback \) -exec chmod +x {} \;
+#### 2. Install Nix
+I highly recommend using the Determinate Systems [nix-installer](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file) for a smooth setup process. Since February 2025 Determinate Nix [officially supports](https://determinate.systems/posts/nix-darwin-updates/) nix-darwin.
+
+#### 3. Clone Repo
+The usual (:
+``` sh
+git clone https://github.com/benedictdaske/nix-config.git
+```
+``` sh
+git clone git@github.com:benedictdaske/nix-config.git
 ```
 
-### enable fisher
+#### 4. Build and Switch
+To **build** a configuration:
+``` sh
+nix build ".#darwinConfigurations.HOSTNAME.system"
+```
+When the build has finished successfully, **switch** to the new config:
+``` sh
+./result/sw/bin/darwin-rebuild switch --flake ".#HOSTNAME"
+```
+Remember to replace ```HOSTNAME``` to equal the name of the desired config.
+
+#### 5. Add Dotfiles to load customisation
+Clone the dotfile repo of your choice to add your user customisation. I am using [my personal one](https://github.com/benedictdaske/dotfiles).
+``` sh
+git clone https://github.com/benedictdaske/dotfiles.git
+```
+``` sh
+git clone git@github.com:benedictdaske/dotfiles.git
+```
+
+### Notes to self
+
+#### 1. Installing fisher
+[fisher](https://github.com/jorgebucaran/fisher) is a plugin manager for fish. Only needed if not yet in dotfiles.
+``` sh
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
 
 
 ## Authorship
 
-Part of this config was collected from other Nix configurations. Most notably, the configs of [dustinlyons](https://github.com/dustinlyons/nixos-config), [mitchellh](https://github.com/mitchellh/nixos-config) and [shayne](https://github.com/shayne/nixos-config) have been a great but challenging introduction to Nix. Please give their configs a look, these people actually know what they're doing...
+Part of this config was collected from other Nix configurations. Most notably, the config of [shayne](https://github.com/shayne/nixos-config) provided great insights into more complex Nix builds. While [dustinlyons](https://github.com/dustinlyons/nixos-config) config allowed me to test Nix for the first time without a hassle. Please give their configs a look, unlike me these people actually know what they're doing...

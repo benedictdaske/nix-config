@@ -40,6 +40,7 @@
     };
 
     # build environment
+    # disabled to allow Determinate Nix to manage Nix
     nix = {
         enable = false;
         settings = {
