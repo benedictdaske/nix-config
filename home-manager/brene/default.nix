@@ -28,7 +28,7 @@ in
     htop
     jq
     just
-    kanata
+    unstable.kanata
     neofetch
     neovim
     ripgrep
