@@ -8,6 +8,7 @@
     btop
     # docker-client # check if docker cli works
     gcc
+    unstable.keymapper
     nix-diff
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier
