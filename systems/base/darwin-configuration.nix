@@ -143,11 +143,6 @@
                 TrackpadThreeFingerDrag = true;
             };
         };
-        keyboard = {
-            enableKeyMapping = true;
-            remapCapsLockToEscape = true;
-            swapLeftCtrlAndFn = false;
-        };
     };
 
 
