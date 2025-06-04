@@ -81,9 +81,6 @@ in
     # };
   };
 
-  # programs.fish = {
-  #   enable = true;
-  # };
 
   # TODO: move to dotfile
   # programs.git = {
