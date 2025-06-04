@@ -56,10 +56,21 @@ git clone git@github.com:benedictdaske/dotfiles.git
 
 ### Notes to self
 
-#### 1. Installing fisher
+<details><summary>#### 1. Installing fisher</summary>
 [fisher](https://github.com/jorgebucaran/fisher) is a plugin manager for fish. Only needed if not yet in dotfiles.
 ``` sh
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+</details>
+
+#### Installing LazyVim
+[LazyVim](https://github.com/LazyVim/LazyVim) is my preferred nvim config that saves me a lot of hassle. Only needed if not yet in dotfiles.
+``` sh
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+```
+Remove ```.git``` folder:
+``` sh
+rm -rf ~/.config/nvim/.git
 ```
 
 
