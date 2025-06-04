@@ -96,6 +96,41 @@
                 stealthenabled = 1;
             };
 
+            dock = {
+                autohide = true;
+                # magnified size
+                largesize = 48;
+                launchanim = true;
+                magnification = true;
+                minimize-to-application = true;
+                orientation = "bottom";
+                show-recents = false;
+                tilesize = 32;
+            };
+
+            finder = {
+                # disable desktop icons
+                CreateDesktop = false;
+                # TODO necessary ???
+                _FXShowPosixPathInTitle = true;
+                # enable column view for new windows
+                FXPreferredViewStyle = "clmv";
+                # new finder window opens in home directory
+                NewWindowTarget = "Home";
+                # bottom path bar
+                ShowPathbar = true;
+                # allow to quit finder
+                QuitMenuItem = true;
+            };
+
+            # fn cahnges input language
+            hitoolbox.AppleFnUsageType = "Change Input Source";
+
+            loginwindow = {
+                # disable guest account
+                GuestEnabled = false;
+            };
+
             NSGlobalDomain = {
                 # 24-hour time
                 AppleICUForce24HourTime = true;
@@ -112,37 +147,16 @@
 
                 # default: fn instead of actions
                 "com.apple.keyboard.fnState" = true;
-                # allow tap to click
+                # tap to click
                 "com.apple.mouse.tapBehavior" = 1;
                 # disable error sounds
                 "com.apple.sound.beep.volume" = 0.0;
                 "com.apple.sound.beep.feedback" = 0;
-            };
+                # natural scrolling
+                "com.apple.swipescrolldirection" = true;
 
-            dock = {
-                autohide = true;
-                # magnified size
-                largesize = 48;
-                launchanim = true;
-                magnification = true;
-                minimize-to-application = true;
-                orientation = "bottom";
-                show-recents = false;
-                tilesize = 32;
-            };
-
-            finder = {
-                # TODO necessary ???
-                _FXShowPosixPathInTitle = true;
-                # enable column view for new windows
-                FXPreferredViewStyle = "clmv";
-                # bottom path bar
-                ShowPathbar = true;
-            };
-
-            loginwindow = {
-                # disable guest account
-                GuestEnabled = false;
+                # disable iCloud saving by default
+                NSDocumentSaveNewDocumentsToCloud = false;
             };
 
             trackpad = {
