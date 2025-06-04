@@ -90,12 +90,15 @@ rm -rf ~/.config/nvim/.git
 <summary> Temporary Reference </summary>
 
 - https://github.com/edheltzel/dotfiles
+- https://github.com/CoreyMSchafer/dotfiles
+- https://github.com/mathiasbynens/dotfiles
+- https://gitlab.com/dwt1/dotfiles
 - https://github.com/omerxx/dotfiles
 - https://github.com/mitchellh/nixos-config/blob/main/users/mitchellh/ghostty.linux
 
 </details>
 
 
-## Authorship
+## Acknowledgements
 
 Part of this config was collected from other Nix configurations. Most notably, the config of [shayne](https://github.com/shayne/nixos-config) provided great insights into more complex Nix builds. While [dustinlyons](https://github.com/dustinlyons/nixos-config) config allowed me to test Nix for the first time without a hassle. Please give their configs a look, unlike me these people actually know what they're doing...
