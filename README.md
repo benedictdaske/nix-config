@@ -12,6 +12,17 @@ My personal - hopefully - clean, modular and well-documented Nix config
 ├── systems      # system configs for each machine
 ```
 
+>[!NOTE]
+> My Nix config does not manage my dotfiles. 
+> 
+> All program customisation is managed by my dotfiles repo.
+
+
+>[!IMPORTANT]
+> This is my personal configuration. It is not designed to be a plug-and-play solution for any other system, though most parts should work work on any Mac.
+>
+> I recommend understanding and adapting the codebase to your needs before using it yourself.
+
 ## Installation
 
 ### MacOS
@@ -23,7 +34,10 @@ xcode-select --install
 Or just try to use git (clone), an installation window should pop up.
 
 #### 2. Install Nix
-I highly recommend using the Determinate Systems [nix-installer](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file) for a smooth setup process. Since February 2025 Determinate Nix [officially supports](https://determinate.systems/posts/nix-darwin-updates/) nix-darwin.
+I highly recommend using the Determinate Systems [nix-installer](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file) for a smooth setup process. Since February 2025 Determinate Nix [officially supports](https://determinate.systems/posts/nix-darwin-updates/) nix-darwin. In short:
+``` sh
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
+```
 
 #### 3. Clone Repo
 The usual (:
@@ -71,6 +85,15 @@ Remove ```.git``` folder:
 ``` sh
 rm -rf ~/.config/nvim/.git
 ```
+
+<details>
+<summary> Temporary Reference </summary>
+
+- https://github.com/edheltzel/dotfiles
+- https://github.com/omerxx/dotfiles
+- https://github.com/mitchellh/nixos-config/blob/main/users/mitchellh/ghostty.linux
+
+</details>
 
 
 ## Authorship
