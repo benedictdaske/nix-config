@@ -85,6 +85,7 @@ in
   #   enable = true;
   # };
 
+  # TODO: move to dotfile
   # programs.git = {
   #   enable = true;
   #   userName = "benedictdaske";

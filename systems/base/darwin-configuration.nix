@@ -10,7 +10,7 @@
 
     environment = {
         # otherwise homebrew brews are not found
-        extraInit = ''Add commentMore actions
+        extraInit = ''
             export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt:$PATH"
         '';
         systemPackages = with pkgs; [
