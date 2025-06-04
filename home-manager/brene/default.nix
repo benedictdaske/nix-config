@@ -28,6 +28,7 @@ in
     htop
     jq
     just
+    kanata
     neofetch
     neovim
     ripgrep
