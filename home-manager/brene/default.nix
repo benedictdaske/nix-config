@@ -21,12 +21,15 @@ in
     bind
     curl
     fd
+    fish
     fzf
+    git
     gnugrep
     htop
     jq
     just
     neofetch
+    neovim
     ripgrep
     stow
     tree
@@ -57,9 +60,9 @@ in
     MANPAGER = "${pkgs.bat}/bin/bat -l man -p";
   };
 
-  # TODO move to dotfiles
   # Prevent the "Last login" message from showing up
-  home.file.".hushlogin".text = "";
+  # TODO: move to dotfile
+  # home.file.".hushlogin".text = "";
 
   #---------------------------------------------------------------------
   # Programs
@@ -70,42 +73,43 @@ in
     nix-direnv = {
       enable = true;
     };
-    config = {
-      whitelist = {
-        exact = [ "$HOME/.envrc" ];
-      };
-    };
+    # TODO: move to dotfile
+    # config = {
+    #   whitelist = {
+    #     exact = [ "$HOME/.envrc" ];
+    #   };
+    # };
   };
 
-  programs.fish = {
-    enable = true;
-  };
+  # programs.fish = {
+  #   enable = true;
+  # };
 
-  programs.git = {
-    enable = true;
-    userName = "benedictdaske";
-    userEmail = "benedictdaske@tutanota.com";
-    aliases = {
-    #   cleanup = "!git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
-    #   prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
-    #   root = "rev-parse --show-toplevel";
-    #   amend = "commit --amend --no-edit";
-    };
-    diff-so-fancy.enable = true;
-    extraConfig = {
-      color.ui = true;
-      github.user = "benedictdaske";
-      init.defaultBranch = "main";
-    };
-  };
+  # programs.git = {
+  #   enable = true;
+  #   userName = "benedictdaske";
+  #   userEmail = "benedictdaske@tutanota.com";
+  #   aliases = {
+  #   #   cleanup = "!git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
+  #   #   prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+  #   #   root = "rev-parse --show-toplevel";
+  #   #   amend = "commit --amend --no-edit";
+  #   };
+  #   diff-so-fancy.enable = true;
+  #   extraConfig = {
+  #     color.ui = true;
+  #     github.user = "benedictdaske";
+  #     init.defaultBranch = "main";
+  #   };
+  # };
 
-  programs.neovim = {
-    enable = true;
-
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-  };
+  # programs.neovim = {
+  #   enable = true;
+  #   # TODO: move to dotfile
+  #   # viAlias = true;
+  #   # vimAlias = true;
+  #   # vimdiffAlias = true;
+  # };
 
 #   programs.tmux = {
 #     enable = true;
