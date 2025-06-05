@@ -89,7 +89,7 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 ```
 Remove ```.git``` folder:
 ``` sh
-rm -rf ~/.config/nvim/.git
+rm -rf ~/.config/nvim/.git ~/.config/nvim/.gitignore
 ```
 
 <details>
