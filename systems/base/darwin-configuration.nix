@@ -123,7 +123,7 @@
                 QuitMenuItem = true;
             };
 
-            # fn cahnges input language
+            # fn changes input language
             hitoolbox.AppleFnUsageType = "Change Input Source";
 
             loginwindow = {
