@@ -81,26 +81,6 @@ in
     # };
   };
 
-
-  # TODO: move to dotfile
-  # programs.git = {
-  #   enable = true;
-  #   userName = "benedictdaske";
-  #   userEmail = "benedictdaske@tutanota.com";
-  #   aliases = {
-  #   #   cleanup = "!git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
-  #   #   prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
-  #   #   root = "rev-parse --show-toplevel";
-  #   #   amend = "commit --amend --no-edit";
-  #   };
-  #   diff-so-fancy.enable = true;
-  #   extraConfig = {
-  #     color.ui = true;
-  #     github.user = "benedictdaske";
-  #     init.defaultBranch = "main";
-  #   };
-  # };
-
   # programs.neovim = {
   #   enable = true;
   #   # TODO: move to dotfile
