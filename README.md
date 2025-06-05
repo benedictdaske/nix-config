@@ -39,7 +39,13 @@ I highly recommend using the Determinate Systems [nix-installer](https://github.
 curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
 ```
 
-#### 3. Clone Repo
+#### 3. Install Homebrew
+The manual Homebrew is required, otherwise the switch will fail, asking you to install Homebrew.
+``` sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+#### 4. Clone Repo
 The usual (:
 ``` sh
 git clone https://github.com/benedictdaske/nix-config.git
@@ -48,7 +54,7 @@ git clone https://github.com/benedictdaske/nix-config.git
 git clone git@github.com:benedictdaske/nix-config.git
 ```
 
-#### 4. Build and Switch
+#### 5. Build and Switch
 To **build** a configuration:
 ``` sh
 nix build ".#darwinConfigurations.HOSTNAME.system"
@@ -59,7 +65,7 @@ When the build has finished successfully, **switch** to the new config:
 ```
 Remember to replace ```HOSTNAME``` to equal the name of the desired config.
 
-#### 5. Add Dotfiles to load customisation
+#### 6. Add Dotfiles to load customisation
 Clone the dotfile repo of your choice to add your user customisation. I am using [my personal one](https://github.com/benedictdaske/dotfiles).
 ``` sh
 git clone https://github.com/benedictdaske/dotfiles.git
