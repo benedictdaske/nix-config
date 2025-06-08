@@ -33,7 +33,6 @@
             "bitwarden"
             "brave-browser"
             "ghostty"
-            "freetube"
             "karabiner-elements"
             "obsidian"
             "onyx"
