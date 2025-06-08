@@ -157,11 +157,29 @@
 
                 # disable iCloud saving by default
                 NSDocumentSaveNewDocumentsToCloud = false;
+
             };
 
             trackpad = {
                 Clicking = true;
                 TrackpadThreeFingerDrag = true;
+            };
+
+            # custom user preferences using plist code
+            CustomUserPreferences = {
+                
+                # custom keybindings
+                "com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
+                    # Disable Cmd+Space (Spotlight Search)
+                    "64" = {
+                        enabled = false;
+                        value = {
+                            parameters = [ 32 49 1048576 ];  # Cmd + Space
+                            type = "standard";
+                        };
+                    };
+                };
+
             };
         };
     };
