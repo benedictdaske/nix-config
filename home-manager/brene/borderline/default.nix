@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     btop
+    cmatrix
     # docker-client # check if docker cli works
     gcc
     nix-diff
