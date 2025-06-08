@@ -170,14 +170,12 @@
                 
                 # custom keybindings
                 "com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
+                    # Disable Ctrl+Space (Next Input Source)
+                    "60".enabled = false;
+                    # Disable Shift+Ctrl+Space (Previous Input Source)
+                    "61".enabled = false;
                     # Disable Cmd+Space (Spotlight Search)
-                    "64" = {
-                        enabled = false;
-                        value = {
-                            parameters = [ 32 49 1048576 ];  # Cmd + Space
-                            type = "standard";
-                        };
-                    };
+                    "64".enabled = false;
                 };
 
             };
