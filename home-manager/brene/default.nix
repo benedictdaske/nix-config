@@ -81,14 +81,6 @@ in
     # };
   };
 
-  # programs.neovim = {
-  #   enable = true;
-  #   # TODO: move to dotfile
-  #   # viAlias = true;
-  #   # vimAlias = true;
-  #   # vimdiffAlias = true;
-  # };
-
 #   programs.tmux = {
 #     enable = true;
 #     terminal = "xterm-256color";
