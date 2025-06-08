@@ -35,6 +35,7 @@
             "ghostty"
             "freetube"
             "karabiner-elements"
+            "monarch"
             "obsidian"
             "onyx"
             "orbstack"
