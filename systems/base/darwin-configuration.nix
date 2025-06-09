@@ -130,7 +130,7 @@
             };
 
             # fn changes input language
-            hitoolbox.AppleFnUsageType = "Change Input Source";
+            hitoolbox.AppleFnUsageType = "Do Nothing";
 
             loginwindow = {
                 # disable guest account
@@ -177,11 +177,25 @@
                 # custom keybindings
                 "com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
                     # Disable Ctrl+Space (Next Input Source)
-                    "60".enabled = false;
+                    "60" = {
+                        enabled = false;
+                        value = {
+                            parameters = [ 92 42 1966080 ];
+                            type = "standard";
+                        };
+                    };
                     # Disable Shift+Ctrl+Space (Previous Input Source)
                     "61".enabled = false;
                     # Disable Cmd+Space (Spotlight Search)
                     "64".enabled = false;
+                    # Disable 2xFn for Dictation
+                    "164" = {
+                        enabled = false;
+                        value = {
+                            parameters = [ 65535 65535 0];
+                            type = "standard";
+                        };
+                    };
                 };
 
             };
