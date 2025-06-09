@@ -51,6 +51,7 @@ in
   # Env vars and dotfiles
   #---------------------------------------------------------------------
 
+  # seem not to work???
   home.sessionVariables = {
     LANG = "en_GB.UTF-8";
     LC_CTYPE = "en_GB.UTF-8";
@@ -58,11 +59,8 @@ in
     EDITOR = "nvim";
     PAGER = "less -FirSwX";
     MANPAGER = "${pkgs.bat}/bin/bat -l man -p";
+    STARSHIP_CONFIG = "/Users/brene/.config/starship/starship.toml";
   };
-
-  # Prevent the "Last login" message from showing up
-  # TODO: move to dotfile
-  # home.file.".hushlogin".text = "";
 
   #---------------------------------------------------------------------
   # Programs

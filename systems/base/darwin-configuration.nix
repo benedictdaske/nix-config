@@ -30,12 +30,16 @@
 
     fonts = {
         packages = with pkgs; [
-            (nerdfonts.override { fonts = [ "FiraCode" ]; })
-            fira
+            fira-code
             jetbrains-mono
             meslo-lgs-nf
             monaspace
             noto-fonts-emoji
+
+            nerd-fonts.fira-code
+            nerd-fonts.iosevka
+            nerd-fonts.iosevka-term
+            nerd-fonts.jetbrains-mono
         ];
     };
 
