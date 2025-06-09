@@ -27,7 +27,7 @@ trace target_host=hostname: (build target_host "--show-trace")
 [macos]
 switch target_host=hostname: (build target_host)
   @echo -e "{{YELLOW}}Switching to new config for {{target_host}}...{{NC}}"
-  ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
+  sudo ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
   @echo -e "{{GREEN}}Switched to new config!{{NC}}"
 
 # Rollback to a previous generation interactively

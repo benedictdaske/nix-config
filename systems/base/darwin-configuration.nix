@@ -92,6 +92,9 @@
 
     # default settings for darwin
     system = {
+        # required from 25.05
+        primaryUser = "brene";
+
         defaults = {
             alf = {
                 # enable firewall
