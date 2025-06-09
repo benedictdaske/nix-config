@@ -5,6 +5,7 @@
   ];
 
   home.packages = with pkgs; [
+    ascii
     btop
     cmatrix
     # docker-client # check if docker cli works
