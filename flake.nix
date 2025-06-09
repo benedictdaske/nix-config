@@ -3,14 +3,14 @@
 
     inputs = {
         # primary nixpkgs repo
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
         # unstable repo for selected packages
         nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
         # nix-darwin for MacOS
         nix-darwin = {
-            url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+            url = "github:LnL7/nix-darwin/nix-darwin-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
@@ -21,7 +21,7 @@
 
         # home-manager for user config
         home-manager = {
-            url = "github:nix-community/home-manager/release-24.11";
+            url = "github:nix-community/home-manager/release-25.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
