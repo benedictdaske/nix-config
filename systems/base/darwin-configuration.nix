@@ -182,6 +182,8 @@
                     "61".enabled = true;
                     # Disable Cmd+Space (Spotlight Search)
                     "64".enabled = false;
+                    # Disable Emoji Picker (Ctrl+Cmd+Space)
+                    "160".enabled = false;
                     # Disable 2xFn for Dictation
                     "164" = {
                         enabled = false;
