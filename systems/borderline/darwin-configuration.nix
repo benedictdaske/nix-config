@@ -67,9 +67,9 @@
         # $ mas search <app name>
         masApps = {
             # "blackmagic-disk-speed-test" = 425264550;
-            # "keynote" = 409183694;
-            # "numbers" = 409203825;
-            # "pages" = 409201541;
+            "keynote" = 409183694;
+            "numbers" = 409203825;
+            "pages" = 409201541;
         };
     };
 
