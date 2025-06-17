@@ -144,6 +144,8 @@
                 AppleInterfaceStyle = "Dark";
                 # file extensions
                 AppleShowAllExtensions = true;
+                # show scrollbars only when scrolling
+                AppleShowScrollBars = "WhenScrolling";
                 # diasable for key-repeat
                 ApplePressAndHoldEnabled = false;
 
@@ -160,6 +162,7 @@
                 "com.apple.sound.beep.feedback" = 0;
                 # natural scrolling
                 "com.apple.swipescrolldirection" = true;
+                
 
                 # disable iCloud saving by default
                 NSDocumentSaveNewDocumentsToCloud = false;
