@@ -27,7 +27,7 @@
 
         brews = [];
         taps = [];
-        casks = [
+        casks = builtins.map (name: { inherit name; greedy = true; }) [
 
             "aldente"
             "bitwarden"
@@ -41,7 +41,7 @@
             "spotify"
             "stats"
             "sublime-text"
-            "syncthing"
+            "syncthing-app"
             "telegram"
             "tuta-mail"
             "utm"
