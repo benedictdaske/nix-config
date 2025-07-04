@@ -27,9 +27,13 @@
 
         brews = [];
         taps = [];
-        casks = builtins.map (name: { inherit name; greedy = true; }) [
-
-            "aldente"
+        casks = builtins.map (cask:
+            if builtins.isString cask then
+                { name = cask; greedy = true; }
+            else
+                { inherit (cask) name; greedy = cask.greedy or true; }
+        ) [
+            { name = "aldente"; greedy = false; }
             "bitwarden"
             "brave-browser"
             "ghostty"
