@@ -27,12 +27,16 @@
 
         brews = [];
         taps = [];
+        # casks are not updated automatically by default
+        # adding the greedy flag updates casks when new versions are available
+        # sometimes this may lead to undesired behaviour as .App is fully removed before installation
         casks = builtins.map (cask:
             if builtins.isString cask then
                 { name = cask; greedy = true; }
             else
                 { inherit (cask) name; greedy = cask.greedy or true; }
         ) [
+            # to prevent the helper app from being removed
             { name = "aldente"; greedy = false; }
             "bitwarden"
             "brave-browser"
