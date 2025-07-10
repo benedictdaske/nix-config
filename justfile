@@ -11,24 +11,58 @@ NC     := '\033[0m'
 hostname := `hostname -s`
 
 
+
+### general
+# Update flake inputs to their latest revisions
+flake:
+  @echo -e "{{YELLOW}}Starting flake input update...{{NC}}"
+  nix flake update
+  @echo -e "{{GREEN}}Updated flake inputs!{{NC}}"
+
+# Garbage collect old OS generations and remove stale packages from the nix store
+gc generations="5":
+  nix-env --delete-generations {{generations}}
+  nix-store --gc
+
+
+
 ### macos
 # Build the nix-darwin system configuration without switching to it
 [macos]
 build target_host=hostname flags="":
   @echo -e "{{YELLOW}}Building nix-darwin config...{{NC}}"
-  nix build ".#darwinConfigurations.{{target_host}}.system" {{flags}}
+  nix build {{flags}} ".#darwinConfigurations.{{target_host}}.system"
   @echo -e "{{GREEN}}Build completed!{{NC}}"
 
 # Build the nix-darwin config with the --show-trace flag set
 [macos]
 trace target_host=hostname: (build target_host "--show-trace")
 
-# Build the nix-darwin configuration and switch to it
+# Build the nix-darwin configuration and switch
 [macos]
 switch target_host=hostname: (build target_host)
   @echo -e "{{YELLOW}}Switching to new config for {{target_host}}...{{NC}}"
   sudo ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
   @echo -e "{{GREEN}}Switched to new config!{{NC}}"
+
+# Update casks, build config and switch
+[macos]
+casks target_host=hostname:
+  GREEDY_CASKS=1 just build {{target_host}} --impure
+  @echo -e "{{YELLOW}}Updating casks...{{NC}}"
+  sudo -E ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
+  @echo -e "{{GREEN}}Updated casks!{{NC}}"
+
+# Update casks, build config and switch
+[macos]
+update target_host=hostname:
+  @echo -e "{{YELLOW}}Starting full update...{{NC}}"
+  just flake
+  GREEDY_CASKS=1 just build {{target_host}} --impure
+  sudo -E ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
+  @echo -e "{{GREEN}}Updated full system!{{NC}}"
+
+
 
 # Rollback to a previous generation interactively
 [macos]
@@ -46,6 +80,7 @@ rollback target_host=hostname:
   fi
 
 
+
 ### linux
 # Build the NixOS configuration without switching to it
 [linux]
@@ -60,14 +95,3 @@ trace target_host=hostname: (build target_host "--show-trace")
 [linux]
 switch target_host=hostname:
   sudo nixos-rebuild switch --flake .#{{target_host}}
-
-
-# Update flake inputs to their latest revisions
-update:
-  nix flake update
-
-
-# Garbage collect old OS generations and remove stale packages from the nix store
-gc generations="5":
-  nix-env --delete-generations {{generations}}
-  nix-store --gc

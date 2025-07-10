@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, greedyCasks, ... }: {
     nixpkgs.hostPlatform = "aarch64-darwin";
 
     # m2 macbook pro
@@ -32,9 +32,9 @@
         # sometimes this may lead to undesired behaviour as .App is fully removed before installation
         casks = builtins.map (cask:
             if builtins.isString cask then
-                { name = cask; greedy = true; }
+                { name = cask; greedy = greedyCasks; }
             else
-                { inherit (cask) name; greedy = cask.greedy or true; }
+                { inherit (cask) name; greedy = if cask ? greedy then cask.greedy else false; }
         ) [
             # to prevent the helper app from being removed
             { name = "aldente"; greedy = false; }
