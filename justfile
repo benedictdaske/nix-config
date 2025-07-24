@@ -56,7 +56,6 @@ casks target_host=hostname:
 # Update casks, build config and switch
 [macos]
 update target_host=hostname:
-  export GREEDY_CASKS=1
   @echo -e "{{YELLOW}}Starting full update...{{NC}}"
   just flake
   just build {{target_host}} --impure
