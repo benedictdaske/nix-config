@@ -51,6 +51,7 @@
             "sublime-text"
             "syncthing-app"
             "telegram"
+            "tidal"
             "tuta-mail"
             "utm"
             "visual-studio-code"
