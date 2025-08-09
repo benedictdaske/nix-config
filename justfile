@@ -48,8 +48,8 @@ switch target_host=hostname: (build target_host)
 # Update casks, build config and switch
 [macos]
 casks target_host=hostname:
-  GREEDY_CASKS=1 just build {{target_host}} --impure
   @echo -e "{{YELLOW}}Updating casks...{{NC}}"
+  GREEDY_CASKS=1 just build {{target_host}} --impure
   sudo -E ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
   @echo -e "{{GREEN}}Updated casks!{{NC}}"
 
