@@ -32,6 +32,10 @@ let
   homeManagerFn = if isDarwin then inputs.home-manager.darwinModules.home-manager else inputs.home-manager.nixosModules.home-manager;
   baseSystemConfig = systemsPath + "/base/${(if isDarwin then "darwin-configuration.nix" else "nixos-configuration.nix")}";
 
+  # update casks greedily
+  greedyCasks = if (builtins.getEnv "GREEDY_CASKS" == "1") then true else false;
+
+
   # home manager module args
   args = {
     inherit inputs users myLibPath myModulesPath;
@@ -83,7 +87,7 @@ in
 
     # pass custom args to system
     specialArgs = {
-      inherit inputs outputs stateVersion users myLibPath myModulesPath;
+      inherit inputs outputs stateVersion users myLibPath myModulesPath greedyCasks;
       currentSystemName = name;
     };
   };

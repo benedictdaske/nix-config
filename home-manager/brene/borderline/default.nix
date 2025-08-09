@@ -10,6 +10,7 @@
     cmatrix
     # docker-client # check if docker cli works
     gcc
+    mas
     nix-diff
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier

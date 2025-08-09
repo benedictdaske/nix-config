@@ -31,10 +31,16 @@
         # adding the greedy flag updates casks when new versions are available
         # sometimes this may lead to undesired behaviour as .App is fully removed before installation
         casks = builtins.map (cask:
-            if builtins.isString cask then
+            if greedyCasks then
+                if builtins.isString cask then
                     { name = cask; greedy = true; }
+                else
+                    { inherit (cask) name; greedy = if cask ? greedy then cask.greedy else false; }
             else
-                { inherit (cask) name; greedy = if cask ? greedy then cask.greedy else false; }
+                if builtins.isString cask then
+                    { name = cask; greedy = false; }
+                else
+                    { inherit (cask) name; greedy = false; }
         ) [
             # to prevent the helper app from being removed
             { name = "aldente"; greedy = false; }
