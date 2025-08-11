@@ -66,8 +66,16 @@
     libx.loadSystems // {
         # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
         devShells = libx.forAllSystems (system:
-            let pkgs = nixpkgs.legacyPackages.${system};
-            in import ./shell.nix { inherit pkgs; }
+            let
+                pkgs = nixpkgs.legacyPackages.${system};
+                shells = import ./shell.nix { inherit pkgs; };
+            in {
+                # TODO find some better solution to this boilerplate code
+                # direnv requires explicit distinction between the shells
+                # defining devShells directly in flake feels weird...
+                default = shells.default;
+                test = shells.test;
+            }
         );
 
         # nix fmt

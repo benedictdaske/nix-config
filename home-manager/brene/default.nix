@@ -71,12 +71,6 @@ in
     nix-direnv = {
       enable = true;
     };
-    # TODO: move to dotfile
-    # config = {
-    #   whitelist = {
-    #     exact = [ "$HOME/.envrc" ];
-    #   };
-    # };
   };
 
 #   programs.tmux = {

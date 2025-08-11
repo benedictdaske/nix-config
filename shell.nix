@@ -1,10 +1,30 @@
 # Shell for bootstrapping flake-enabled nix and home-manager
 # Enter it through 'nix develop' or (legacy) 'nix-shell'
 
-{ pkgs ? (import ./nixpkgs.nix) { } }: {
+{ pkgs ? import <nixpkgs> {} }:
+{
   default = pkgs.mkShell {
-    # Enable experimental features without having to specify the argument
-    NIX_CONFIG = "experimental-features = nix-command flakes";
-    nativeBuildInputs = with pkgs; [ home-manager git ];
+    packages = with pkgs; [
+      uv
+      nodejs_24
+    ];
+
+    inputsFrom = with pkgs; [];
+
+    shellHook = ''
+      echo "Entered Dev Shell"
+    '';
+  };
+
+  test = pkgs.mkShell {
+    packages = with pkgs; [
+      cowsay
+    ];
+
+    inputsFrom = with pkgs; [];
+
+    shellHook = ''
+      echo "Welcome to the test shell!"
+    '';
   };
 }
