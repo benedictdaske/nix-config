@@ -5,8 +5,9 @@
 {
   default = pkgs.mkShell {
     packages = with pkgs; [
-      uv
       nodejs_24
+      python313
+      uv
     ];
 
     inputsFrom = with pkgs; [];

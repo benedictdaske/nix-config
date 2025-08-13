@@ -12,7 +12,6 @@
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier
     ookla-speedtest
-    python3
     # sops # pushing secrets via git
     whois
 
