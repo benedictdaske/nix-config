@@ -45,23 +45,26 @@ switch target_host=hostname: (build target_host)
   sudo ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
   @echo -e "{{GREEN}}Switched to new config!{{NC}}"
 
+# currenlty non functional due to lack of dynamic argument passing
 # Update casks, build config and switch
-[macos]
-casks target_host=hostname:
-  @echo -e "{{YELLOW}}Updating casks...{{NC}}"
-  GREEDY_CASKS=1 just build {{target_host}} --impure
-  sudo -E ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
-  @echo -e "{{GREEN}}Updated casks!{{NC}}"
+# [macos]
+# casks target_host=hostname:
+#   @echo -e "{{YELLOW}}Updating casks...{{NC}}"
+#   @echo -e "{{YELLOW}}Building nix-darwin config...{{NC}}"
+#   GREEDY_CASKS=1 nix build --impure ".#darwinConfigurations.{{target_host}}.system"
+#   @echo -e "{{GREEN}}Build completed!{{NC}}"
+#   sudo -E ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
+#   @echo -e "{{GREEN}}Updated casks!{{NC}}"
 
 # Update casks, build config and switch
 [macos]
 update target_host=hostname:
   @echo -e "{{YELLOW}}Starting full update...{{NC}}"
   just flake
-  just casks {{target_host}}
-  sudo -E ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
+  just switch {{target_host}}
   @echo -e "{{GREEN}}Updated full system!{{NC}}"
-
+  # see just casks
+  # just casks {{target_host}}
 
 # Rollback to a previous generation interactively
 [macos]

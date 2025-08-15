@@ -1,4 +1,8 @@
-{ config, lib, greedyCasks, ... }:{
+{ config, lib, greedyCasks, ... }:
+let
+    greedyCasks = true;
+in
+{
     nixpkgs.hostPlatform = "aarch64-darwin";
 
     # m2 macbook pro
@@ -27,9 +31,7 @@
 
         brews = [];
         taps = [];
-        # casks are not updated automatically by default
-        # adding the greedy flag updates casks when new versions are available
-        # sometimes this may lead to undesired behaviour as .App is fully removed before installation
+
         casks = builtins.map (cask:
             if greedyCasks then
                 if builtins.isString cask then
@@ -38,42 +40,43 @@
                     { inherit (cask) name; greedy = if cask ? greedy then cask.greedy else false; }
             else
                 if builtins.isString cask then
-                    { name = cask; greedy = false; }
+                    { name = cask; greedy = false;}
                 else
-                    { inherit (cask) name; greedy = false; }
-        ) [
-            # to prevent the helper app from being removed
-            { name = "aldente"; greedy = false; }
-            "bitwarden"
-            "brave-browser"
-            "ghostty"
-            "karabiner-elements"
-            "obsidian"
-            "onyx"
-            "orbstack"
-            "raycast"
-            "spotify"
-            "stats"
-            "sublime-text"
-            "syncthing-app"
-            "telegram"
-            "tidal"
-            "tuta-mail"
-            "utm"
-            "visual-studio-code"
+                    cask
+            ) [
+                # to prevent the helper app from being removed
+                { name = "aldente"; greedy = false; }
+                "bitwarden"
+                "brave-browser"
+                "ghostty"
+                "karabiner-elements"
+                "obsidian"
+                "onyx"
+                "orbstack"
+                "raycast"
+                "spotify"
+                "stats"
+                "sublime-text"
+                "syncthing-app"
+                "telegram"
+                "tidal"
+                "tuta-mail"
+                "utm"
+                "visual-studio-code"
 
 
-            # add some of these ???
-            # "bartender"
-            # "cursor"
-            # "deskpad"
+                # add some of these ???
+                # "bartender"
+                # "cursor"
+                # "deskpad"
 
-            # "lunar"
-            # "pearcleaner"
-            # "rectangle"
+                # "lunar"
+                # "pearcleaner"
+                # "rectangle"
 
-            # "shortcat"
-        ];
+                # "shortcat"
+            ];
+
         # These app IDs are from using the mas CLI app
         # mas = mac app store
         # https://github.com/mas-cli/mas
