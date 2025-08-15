@@ -179,6 +179,13 @@
                 
                 # custom keybindings
                 "com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
+                    "27" = {
+                        enabled = true;
+                        value = {
+                            parameters = [ 65535 48 524288 ];
+                            type = "standard";
+                        };
+                    };
                     # Disable Ctrl+Space (Previous Input Source)
                     "60".enabled = false;
                     # Enable Ctrl+Option+Space (Next Input Source)
