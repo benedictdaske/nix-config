@@ -1,4 +1,4 @@
-{ pkgs, myModulesPath, ... }:
+{ pkgs, ... }:
 {
   imports = [
     # (myModulesPath + "/neovim")
@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     ascii
     btop
+    caligula # OS img flashing
     cmatrix
     # docker-client # check if docker cli works
     gcc
@@ -20,5 +21,6 @@
 
     # unstable.devenv # maybe later ???
     unstable.starship
+    zstd # compression
   ];
 }

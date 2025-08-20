@@ -7,7 +7,6 @@ let
   systemsPath = ../systems;
   myModulesPath = ../modules;
   homeManagerPath = ../home-manager;
-  variablesPath = ../variables;
 
   # read user library
   filterDirs = lib.filterAttrs (_n: v: v == "directory");
@@ -39,7 +38,7 @@ let
   };
 
   # deep attribute merging function
-  recursiveMergeAttrs = builtins.foldl' lib.recursiveUpdate { };  
+  recursiveMergeAttrs = builtins.foldl' lib.recursiveUpdate { };
 in
 {
   ${configKey}.${name} = systemFn {

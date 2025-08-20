@@ -1,4 +1,4 @@
-{ pkgs, myModulesPath, ... }:
+{ pkgs, ... }:
 {
   imports = [
     # (myModulesPath + "/neovim")

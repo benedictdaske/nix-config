@@ -1,4 +1,4 @@
-{ config, lib, pkgs, myModulesPath, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (pkgs.stdenv) isLinux;
@@ -73,23 +73,23 @@ in
     };
   };
 
-#   programs.tmux = {
-#     enable = true;
-#     terminal = "xterm-256color";
-#     shortcut = "a";
-#     secureSocket = false;
+  #   programs.tmux = {
+  #     enable = true;
+  #     terminal = "xterm-256color";
+  #     shortcut = "a";
+  #     secureSocket = false;
 
-#     extraConfig = ''
-#       set -ga terminal-overrides ",*256col*:Tc"
+  #     extraConfig = ''
+  #       set -ga terminal-overrides ",*256col*:Tc"
 
-#       set -g @dracula-show-battery false
-#       set -g @dracula-show-network false
-#       set -g @dracula-show-weather false
+  #       set -g @dracula-show-battery false
+  #       set -g @dracula-show-network false
+  #       set -g @dracula-show-weather false
 
-#       bind -n C-k send-keys "clear"\; send-keys "Enter"
+  #       bind -n C-k send-keys "clear"\; send-keys "Enter"
 
-#       run-shell ${sources.tmux-pain-control}/pain_control.tmux
-#       run-shell ${sources.tmux-dracula}/dracula.tmux
-#     '';
-#   };
+  #       run-shell ${sources.tmux-pain-control}/pain_control.tmux
+  #       run-shell ${sources.tmux-dracula}/dracula.tmux
+  #     '';
+  #   };
 }

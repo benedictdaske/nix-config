@@ -1,106 +1,107 @@
 {
-    description = "Nix system configuration optimised for Darwin using Mac";
+  description = "Nix system configuration optimised for Darwin using Mac";
 
-    inputs = {
-        # primary nixpkgs repo
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+  inputs = {
+    # primary nixpkgs repo
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
-        # unstable repo for selected packages
-        nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # unstable repo for selected packages
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-        # nix-darwin for MacOS
-        nix-darwin = {
-            url = "github:LnL7/nix-darwin/nix-darwin-25.05";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-        homebrew-core = { url = "github:homebrew/homebrew-core"; flake = false; };
-        homebrew-cask = { url = "github:homebrew/homebrew-cask"; flake = false; };
-        homebrew-bundle = { url = "github:homebrew/homebrew-bundle"; flake = false; };
-
-        # home-manager for user config
-        home-manager = {
-            url = "github:nix-community/home-manager/release-25.05";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        # formatting for nix files
-        nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
-
-        # disk partitioning
-        # disko = {
-        #     url = "github:nix-community/disko";
-        #     inputs.nixpkgs.follows = "nixpkgs";
-        # };
-
-        # other packages
-        # nixos on apple silicon
-        # nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
-
-
-        # non-flakes e.g. nvim plugins
-        # nvim-render-markdown = {
-        #     url = "github:MeanderingProgrammer/render-markdown.nvim";
-        #     flake = false;
-        # }
+    # nix-darwin for MacOS
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, ... }@inputs:
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    homebrew-core = { url = "github:homebrew/homebrew-core"; flake = false; };
+    homebrew-cask = { url = "github:homebrew/homebrew-cask"; flake = false; };
+    homebrew-bundle = { url = "github:homebrew/homebrew-bundle"; flake = false; };
+
+    # home-manager for user config
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # formatting for nix files
+    nix-formatter-pack.url = "github:Gerschtli/nix-formatter-pack";
+
+    # disk partitioning
+    # disko = {
+    #     url = "github:nix-community/disko";
+    #     inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    # other packages
+    # nixos on apple silicon
+    # nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
+
+
+    # non-flakes e.g. nvim plugins
+    # nvim-render-markdown = {
+    #     url = "github:MeanderingProgrammer/render-markdown.nvim";
+    #     flake = false;
+    # }
+  };
+
+  outputs = { self, nixpkgs, ... }@inputs:
     with inputs;
     let
-        inherit (self) outputs;
+      inherit (self) outputs;
 
-        user = "brene";
+      user = "brene";
 
-        # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-        stateVersion = "25.05";
+      # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+      stateVersion = "25.05";
 
-        linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
-        darwinSystems = [ "aarch64-darwin" ];
-        forAllSystems = func: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) func;
+      linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
+      darwinSystems = [ "aarch64-darwin" ];
+      forAllSystems = func: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) func;
 
-        libx = import ./lib { inherit inputs outputs user stateVersion; };
+      libx = import ./lib { inherit inputs outputs user stateVersion; };
 
     in
     libx.loadSystems // {
-        # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
-        devShells = libx.forAllSystems (system:
-            let
-                pkgs = nixpkgs.legacyPackages.${system};
-                shells = import ./shell.nix { inherit pkgs; };
-            in {
-                # TODO find some better solution to this boilerplate code
-                # direnv requires explicit distinction between the shells
-                # defining devShells directly in flake feels weird...
-                default = shells.default;
-                test = shells.test;
-            }
-        );
+      # Devshell for bootstrapping; acessible via 'nix develop' or 'nix-shell' (legacy)
+      devShells = libx.forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          shells = import ./shell.nix { inherit pkgs; };
+        in
+        {
+          # TODO find some better solution to this boilerplate code
+          # direnv requires explicit distinction between the shells
+          # defining devShells directly in flake feels weird...
+          inherit (shells) default;
+          inherit (shells) test;
+        }
+      );
 
-        # nix fmt
-        formatter = libx.forAllSystems (system:
-            nix-formatter-pack.lib.mkFormatter {
-                inherit nixpkgs system;
-                config = {
-                    tools = {
-                        alejandra.enable = false;
-                        deadnix.enable = true;
-                        nixpkgs-fmt.enable = true;
-                        statix.enable = true;
-                    };
-                };
-            }
-        );
+      # nix fmt
+      formatter = libx.forAllSystems (system:
+        nix-formatter-pack.lib.mkFormatter {
+          inherit nixpkgs system;
+          config = {
+            tools = {
+              alejandra.enable = false;
+              deadnix.enable = true;
+              nixpkgs-fmt.enable = true;
+              statix.enable = true;
+            };
+          };
+        }
+      );
 
-        # Custom packages and modifications, exported as overlays
-        overlays = import ./overlays { inherit inputs; };
+      # Custom packages and modifications, exported as overlays
+      overlays = import ./overlays { inherit inputs; };
 
-        # For Custom packages; acessible via 'nix build', 'nix shell', etc
-        # packages = libx.forAllSystems (system:
-        #     let pkgs = nixpkgs.legacyPackages.${system};
-        #     in import ./pkgs { inherit pkgs; inherit inputs; }
-        # );
+      # For Custom packages; acessible via 'nix build', 'nix shell', etc
+      # packages = libx.forAllSystems (system:
+      #     let pkgs = nixpkgs.legacyPackages.${system};
+      #     in import ./pkgs { inherit pkgs; inherit inputs; }
+      # );
 
     };
 }
