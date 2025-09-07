@@ -54,6 +54,7 @@ in
       "obsidian"
       "onyx"
       "orbstack"
+      "raspberry-pi-imager"
       "raycast"
       "spotify"
       "stats"

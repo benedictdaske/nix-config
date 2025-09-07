@@ -8,6 +8,7 @@
     ascii
     btop
     caligula # OS img flashing
+    cloudflared
     cmatrix
     # docker-client # check if docker cli works
     gcc
