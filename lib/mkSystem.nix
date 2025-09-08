@@ -65,21 +65,16 @@ in
               (import (homeManagerPath + "/${user}"))
             ] ++ lib.optionals (builtins.pathExists (homeManagerPath + "/${user}/${name}")) [
               (import (homeManagerPath + "/${user}/${name}"))
+            ] ++ lib.optionals (isDarwin && builtins.pathExists (homeManagerPath + "/${user}/darwin-configuration.nix")) [
+              (import (homeManagerPath + "/${user}/darwin-configuration.nix"))
+            ] ++ lib.optionals (!isDarwin && builtins.pathExists (homeManagerPath + "/${user}/nixos-configuration.nix")) [
+              (import (homeManagerPath + "/${user}/nixos-configuration.nix"))
             ]);
           })
           users);
       }
-    ] ++ builtins.map
-      # load system type specific config for each user
-      (user:
-        if !isDarwin && (builtins.pathExists (homeManagerPath + "/${user}/nixos-configuration.nix")) then
-          import (homeManagerPath + "/${user}/nixos-configuration.nix")
-        else if isDarwin && (builtins.pathExists (homeManagerPath + "/${user}/darwin-configuration.nix")) then
-          import (homeManagerPath + "/${user}/darwin-configuration.nix")
-        else { }
-      )
-      users;
-
+    ];
+    
     # pass custom args to system
     specialArgs = {
       inherit inputs outputs stateVersion users myLibPath myModulesPath;
