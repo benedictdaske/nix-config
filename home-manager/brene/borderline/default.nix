@@ -5,6 +5,7 @@
   ];
 
   home.packages = with pkgs; [
+    android-tools
     ascii
     btop
     caligula # OS img flashing

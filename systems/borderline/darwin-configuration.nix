@@ -1,6 +1,6 @@
 _:
 let
-  greedyCasks = false;
+  greedyCasks = true;
 in
 {
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -49,7 +49,8 @@ in
       { name = "aldente"; greedy = false; }
       "bitwarden"
       "brave-browser"
-      "ghostty"
+      "balenaetcher"
+      # "ghostty"
       "karabiner-elements"
       "obsidian"
       "onyx"
