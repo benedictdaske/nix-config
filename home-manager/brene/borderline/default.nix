@@ -5,7 +5,7 @@
   ];
 
   home.packages = with pkgs; [
-    android-tools
+    # android-tools
     ascii
     btop
     caligula # OS img flashing
@@ -15,6 +15,7 @@
     gcc
     mas
     nix-diff
+    nodejs_22
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier
     ookla-speedtest

@@ -31,6 +31,7 @@ in
     neofetch
     neovim
     ripgrep
+    sshs
     stow
     tree
     # upterm # Terminal sharing

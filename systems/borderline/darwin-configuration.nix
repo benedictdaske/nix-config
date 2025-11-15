@@ -16,6 +16,15 @@ in
   # local nix-index, research this, how to use?
   # programs.nix-index.enable = true;
 
+  environment = {
+    extraInit = ''
+      export PATH="''${PATH}:''${GHOSTTY_BIN_DIR}"
+    '';
+    variables = {
+      XDG_DATA_DIRS = ["/Applications/Ghostty.app/Contents/Resources/ghostty/shell-integration"];
+    };
+  };
+
   homebrew = {
     enable = true;
 
@@ -50,14 +59,16 @@ in
       "bitwarden"
       "brave-browser"
       "balenaetcher"
-      # "ghostty"
+      "finestructure/hummingbird/hummingbird"
+      "ghostty"
       "karabiner-elements"
+      "kindavim"
       "obsidian"
       "onyx"
       "orbstack"
       "raspberry-pi-imager"
       "raycast"
-      "spotify"
+      # "spotify"
       "stats"
       "sublime-text"
       "syncthing-app"

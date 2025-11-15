@@ -30,11 +30,15 @@
 
   fonts = {
     packages = with pkgs; [
+      atkinson-hyperlegible-next
+      aporetic
+      crimson-pro
       fira-code
-      jetbrains-mono
       meslo-lgs-nf
       monaspace
       noto-fonts-emoji
+      open-sans
+      source-serif
 
       nerd-fonts.fira-code
       nerd-fonts.iosevka
@@ -166,6 +170,9 @@
 
         # disable iCloud saving by default
         NSDocumentSaveNewDocumentsToCloud = false;
+
+        # enable Cmd+Ctrl+Drag for windows, doesnt enable resizing
+        # NSWindowShouldDragOnGesture = true;
 
       };
 
