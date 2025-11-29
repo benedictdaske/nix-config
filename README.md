@@ -19,7 +19,8 @@ My personal - hopefully - clean, modular and well-documented Nix config
 
 
 >[!IMPORTANT]
-> This is my personal configuration. It is not designed to be a plug-and-play solution for any other system, though most parts should work work on any Mac.
+```> This is my personal configuration. It is not designed to be a plug-and-play solution for any other system, though most parts should work work on any Mac.```
+> This is my personal configuration. It can be used as a plug-and-play solution for Nix Darwin on MacOS machines running Sequoia. Some settings will need to be changed before using the configuration.
 >
 > I recommend understanding and adapting the codebase to your needs before using it yourself.
 
