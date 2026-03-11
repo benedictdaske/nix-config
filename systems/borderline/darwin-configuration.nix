@@ -72,6 +72,7 @@ in
       "stats"
       "sublime-text"
       "syncthing-app"
+      # { name = "telegram"; greedy = false; }
       "telegram"
       "tidal"
       "tuta-mail"

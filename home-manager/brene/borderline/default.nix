@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     # android-tools
     ascii
+    # unstable.bitwarden
     btop
     caligula # OS img flashing
     cloudflared

@@ -32,12 +32,13 @@
     packages = with pkgs; [
       atkinson-hyperlegible-next
       aporetic
-      crimson-pro
-      fira-code
-      meslo-lgs-nf
+      ibm-plex
+      inter
+      lexend
+      unstable.readexpro
+
       monaspace
       noto-fonts-emoji
-      open-sans
       source-serif
 
       nerd-fonts.fira-code
