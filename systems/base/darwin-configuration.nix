@@ -190,7 +190,7 @@
           "27" = {
             enabled = true;
             value = {
-              parameters = [ 65535 48 524288 ];
+              parameters = [ 65535 48 655360 ];
               type = "standard";
             };
           };
