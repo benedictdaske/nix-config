@@ -188,7 +188,7 @@
         # custom keybindings
         "com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
           "27" = {
-            enabled = true;
+            enabled = false;
             value = {
               parameters = [ 65535 48 655360 ];
               type = "standard";
