@@ -5,10 +5,6 @@
 {
   default = pkgs.mkShell {
     packages = with pkgs; [
-      # nodejs_22
-      # nodejs_24
-      python313
-      uv
     ];
 
     inputsFrom = with pkgs; [ ];
@@ -20,12 +16,30 @@
     '';
   };
 
+  iotsec = pkgs.mkShell {
+    packages = with pkgs; [
+      gdb
+      minicom
+      qemu
+    ];
+
+    inputsFrom = with pkgs; [ ];
+
+    name = "iotsec";
+
+    shellHook = ''
+      echo "Entered IoT Sec Shell"
+    '';
+  };
+
   test = pkgs.mkShell {
     packages = with pkgs; [
       cowsay
     ];
 
     inputsFrom = with pkgs; [ ];
+
+    name = "test";
 
     shellHook = ''
       echo "Welcome to the test shell!"

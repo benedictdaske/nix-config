@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 {
   imports = [
     # (myModulesPath + "/neovim")
@@ -20,11 +20,13 @@
     # nodejs # Node is required for Copilot.vim
     # nodePackages.prettier
     ookla-speedtest
+    
     # sops # pushing secrets via git
     whois
 
     # unstable.devenv # maybe later ???
     unstable.starship
+    uv
     zstd # compression
   ];
 }

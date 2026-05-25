@@ -45,6 +45,12 @@ switch target_host=hostname: (build target_host)
   sudo ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
   @echo -e "{{GREEN}}Switched to new config!{{NC}}"
 
+[macos]
+impure target_host=hostname: (build target_host "--impure")
+  @echo -e "{{YELLOW}}Switching to new impure config for {{target_host}}...{{NC}}"
+  sudo ./result/sw/bin/darwin-rebuild switch --flake ".#{{target_host}}"
+  @echo -e "{{GREEN}}Switched to new config!{{NC}}"
+
 # currenlty non functional due to lack of dynamic argument passing
 # Update casks, build config and switch
 # [macos]

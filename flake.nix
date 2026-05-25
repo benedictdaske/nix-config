@@ -38,7 +38,6 @@
     # nixos on apple silicon
     # nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
 
-
     # non-flakes e.g. nvim plugins
     # nvim-render-markdown = {
     #     url = "github:MeanderingProgrammer/render-markdown.nvim";
@@ -60,7 +59,7 @@
       darwinSystems = [ "aarch64-darwin" ];
       forAllSystems = func: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) func;
 
-      libx = import ./lib { inherit inputs outputs user stateVersion; };
+      libx = import ./lib { inherit self inputs outputs user stateVersion; };
 
     in
     libx.loadSystems // {
@@ -75,6 +74,7 @@
           # direnv requires explicit distinction between the shells
           # defining devShells directly in flake feels weird...
           inherit (shells) default;
+          inherit (shells) iotsec;
           inherit (shells) test;
         }
       );

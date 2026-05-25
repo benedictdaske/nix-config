@@ -35,6 +35,7 @@ in
     stow
     tree
     # upterm # Terminal sharing
+    usbutils
     watch
     yazi
     zoxide

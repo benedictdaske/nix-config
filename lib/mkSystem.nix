@@ -1,4 +1,4 @@
-{ name, inputs, outputs, stateVersion }:
+{ self, name, inputs, outputs, stateVersion }:
 let
   inherit (inputs.nixpkgs) lib;
 
@@ -33,7 +33,7 @@ let
 
   # home manager module args
   args = {
-    inherit inputs users myLibPath myModulesPath;
+    inherit self inputs users myLibPath myModulesPath;
     currentSystemName = name;
   };
 
@@ -77,7 +77,7 @@ in
     
     # pass custom args to system
     specialArgs = {
-      inherit inputs outputs stateVersion users myLibPath myModulesPath;
+      inherit self inputs outputs stateVersion users myLibPath myModulesPath;
       currentSystemName = name;
     };
   };

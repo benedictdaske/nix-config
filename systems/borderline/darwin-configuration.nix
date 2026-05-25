@@ -1,6 +1,6 @@
 _:
 let
-  greedyCasks = true;
+  greedyCasks = false;
 in
 {
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -38,7 +38,11 @@ in
     # update on manual brew commands
     global.autoUpdate = true;
 
-    brews = [ ];
+    brews = [
+        # "lsusb"
+        # "minicom"
+        # "gdb"
+    ];
     taps = [ ];
 
     casks = builtins.map
@@ -62,12 +66,13 @@ in
       "finestructure/hummingbird/hummingbird"
       "ghostty"
       "karabiner-elements"
-      "kindavim"
+      # "kindavim"
       "obsidian"
       "onyx"
       "orbstack"
       "raspberry-pi-imager"
       "raycast"
+      "shapr3d"
       # "spotify"
       "stats"
       "sublime-text"
@@ -100,9 +105,9 @@ in
     # $ mas search <app name>
     masApps = {
       # "blackmagic-disk-speed-test" = 425264550;
-      "keynote" = 409183694;
-      "numbers" = 409203825;
-      "pages" = 409201541;
+      # "keynote" = 409183694;
+      # "numbers" = 409203825;
+      # "pages" = 361309726;
     };
   };
 
