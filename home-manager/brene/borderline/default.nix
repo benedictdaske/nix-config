@@ -5,16 +5,18 @@
   ];
 
   home.packages = with pkgs; [
-    # android-tools
     ascii
     # unstable.bitwarden
     btop
     caligula # OS img flashing
     cloudflared
     cmatrix
+    unstable.codex
     # docker-client # check if docker cli works
+    unstable.devenv
     gcc
     mas
+    mosquitto # iotsec
     nix-diff
     nodejs_22
     # nodejs # Node is required for Copilot.vim
@@ -24,8 +26,7 @@
     # sops # pushing secrets via git
     whois
 
-    # unstable.devenv # maybe later ???
-    unstable.starship
+    starship
     uv
     zstd # compression
   ];

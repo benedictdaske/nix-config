@@ -28,7 +28,7 @@ in
     htop
     jq
     just
-    neofetch
+    fastfetch
     neovim
     ripgrep
     sshs
@@ -55,9 +55,9 @@ in
 
   # seem not to work???
   home.sessionVariables = {
-    LANG = "en_GB.UTF-8";
-    LC_CTYPE = "en_GB.UTF-8";
-    LC_ALL = "en_GB.UTF-8";
+    LANG = "en_US.UTF-8";
+    LC_CTYPE = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
     EDITOR = "nvim";
     PAGER = "less -FirSwX";
     MANPAGER = "${pkgs.bat}/bin/bat -l man -p";

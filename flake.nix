@@ -3,14 +3,14 @@
 
   inputs = {
     # primary nixpkgs repo
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-26.05-darwin";
 
     # unstable repo for selected packages
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # nix-darwin for MacOS
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+      url = "github:LnL7/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,7 +21,7 @@
 
     # home-manager for user config
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -74,7 +74,6 @@
           # direnv requires explicit distinction between the shells
           # defining devShells directly in flake feels weird...
           inherit (shells) default;
-          inherit (shells) iotsec;
           inherit (shells) test;
         }
       );

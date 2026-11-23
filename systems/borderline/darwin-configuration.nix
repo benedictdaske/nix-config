@@ -1,6 +1,6 @@
 _:
 let
-  greedyCasks = false;
+  greedyCasks = true;
 in
 {
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -29,7 +29,9 @@ in
     enable = true;
 
     onActivation = {
+      # currently broken?
       cleanup = "zap";
+      # cleanup = "none";
 
       # enables cask updates on build-switch
       autoUpdate = true;
@@ -39,11 +41,10 @@ in
     global.autoUpdate = true;
 
     brews = [
-        # "lsusb"
-        # "minicom"
-        # "gdb"
     ];
-    taps = [ ];
+    taps = [
+      # "asherjn/recall"
+    ];
 
     casks = builtins.map
       (cask:
@@ -60,6 +61,7 @@ in
       ) [
       # to prevent the helper app from being removed
       { name = "aldente"; greedy = false; }
+      "android-studio"
       "bitwarden"
       "brave-browser"
       "balenaetcher"
@@ -70,20 +72,21 @@ in
       "obsidian"
       "onyx"
       "orbstack"
+      "protonvpn"
       "raspberry-pi-imager"
       "raycast"
-      "shapr3d"
-      # "spotify"
-      "stats"
+      # "asherjn/recall/recall"
+      "signal"
       "sublime-text"
       "syncthing-app"
-      # { name = "telegram"; greedy = false; }
       "telegram"
       "tidal"
       "tuta-mail"
       "utm"
       "visual-studio-code"
-
+      "vlc"
+      "wireshark-app"
+        
 
       # add some of these ???
       # "bartender"
@@ -105,9 +108,10 @@ in
     # $ mas search <app name>
     masApps = {
       # "blackmagic-disk-speed-test" = 425264550;
-      # "keynote" = 409183694;
-      # "numbers" = 409203825;
-      # "pages" = 361309726;
+      "Keynote" = 361285480;
+      "Numbers" = 361304891;
+      "Pages" = 361309726;
+      "Xcode" = 497799835;
     };
   };
 

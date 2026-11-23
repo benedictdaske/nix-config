@@ -13,6 +13,7 @@
     extraInit = ''
       export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt:$PATH"
     '';
+
     systemPackages = with pkgs; [
       gitMinimal
       home-manager
@@ -20,12 +21,23 @@
       killall
       wget
     ];
+
     variables = {
       EDITOR = "nvim";
       SYSTEMD_EDITOR = "nvim";
       VISUAL = "nvim";
     };
+
     shells = with pkgs; [ bashInteractive zsh fish ];
+
+    etc."nix/nix.custom.conf".text = ''
+      # Grant trusted status to root, admin group, and your user
+      trusted-users = root @admin brene
+    
+      # Configure your sandbox settings
+      sandbox = relaxed
+      extra-sandbox-paths = /private/var/db/oah /Library/Apple
+    '';
   };
 
   fonts = {
@@ -38,7 +50,7 @@
       unstable.readexpro
 
       monaspace
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       source-serif
 
       nerd-fonts.fira-code
@@ -57,7 +69,7 @@
         "/private/var/db/oah" # aot files
         "/Library/Apple" # rossetta runtime
       ];
-      trusted-users = [ "@admin" ];
+      trusted-users = [ "@admin" "brene" ];
     };
   };
 
@@ -102,13 +114,6 @@
     primaryUser = "brene";
 
     defaults = {
-      alf = {
-        # enable firewall
-        globalstate = 1;
-        # enable stealth mode, drop ICMP requests e.g. pings
-        stealthenabled = 1;
-      };
-
       dock = {
         autohide = true;
         # magnified size
@@ -176,7 +181,6 @@
 
         # enable Cmd+Ctrl+Drag for windows, doesnt enable resizing
         # NSWindowShouldDragOnGesture = true;
-
       };
 
       trackpad = {
@@ -186,13 +190,34 @@
 
       # custom user preferences using plist code
       CustomUserPreferences = {
-
+        NSGlobalDomain = {
+          NSUserKeyEquivalents = {
+            Minimize = builtins.fromJSON ''"\u00a0"'';
+          };
+        };
         # custom keybindings
         "com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
+          # option+tab to cycle app window
           "27" = {
-            enabled = false;
+            enabled = true;
+            value = {
+              parameters = [ 65535 48 524288 ];
+              type = "standard";
+            };
+          };
+          # option+shift+tab for reverse app window cycle
+          "28" = {
+            enabled = true;
             value = {
               parameters = [ 65535 48 655360 ];
+              type = "standard";
+            };
+          };
+          # disable command+m to minimize
+          "46" = {
+            enabled = false;
+            value = {
+              parameters = [ 65535 48 1966080 ];
               type = "standard";
             };
           };
@@ -214,10 +239,33 @@
           };
         };
 
+        "pbs" = {
+          NSServicesStatus = {
+            # Disable: Convert Traditional Chinese to Simplified Chinese
+            "com.apple.ChineseTextConverterService - Convert Text from Traditional to Simplified Chinese - convertTextToSimplifiedChinese" = {
+              enabled_context_menu = false;
+              enabled_services_menu = false;
+              key_equivalent = "";
+            };
+            # Disable: Convert Simplified Chinese to Traditional Chinese
+            "com.apple.ChineseTextConverterService - Convert Text from Simplified to Traditional Chinese - convertTextToTraditionalChinese" = {
+              enabled_context_menu = false;
+              enabled_services_menu = false;
+              key_equivalent = "";
+            };
+          };
+        };
       };
     };
   };
 
+  networking = {
+    computerName = "borderline";
+    applicationFirewall = {
+      enable = true;
+      enableStealthMode = true;
+    };
+  };
 
   # The user should already exist, but we need to set this up so Nix knows
   # what our home directory is (https://github.com/LnL7/nix-darwin/issues/423).

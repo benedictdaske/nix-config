@@ -21,9 +21,9 @@ flake:
 
 # Garbage collect old OS generations and remove stale packages from the nix store
 gc generations="5":
-  nix-env --delete-generations {{generations}}
-  nix-store --gc
-
+  sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +{{generations}}
+  nix-env --delete-generations +{{generations}}
+  sudo nix-store --gc
 
 
 ### macos
